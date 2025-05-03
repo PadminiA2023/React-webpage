@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Glowing vertical beam animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+.animate-shimmer {
+  background-size: 100% 200%;
+  animation: shimmer 6s linear infinite;
+}
+
+/* New Core Energy Beam Animation */
+@keyframes energy-beam {
+  0% {
+    transform: scaleY(1) translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleY(1.02) translateY(-2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) translateY(0);
+    opacity: 0.9;
+  }
+}
+
+.animate-energy-beam {
+  animation: energy-beam 3s ease-in-out infinite;
+}
+
+@keyframes neon-beam {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.03);
+  }
+}
+
+.animate-neon-beam {
+  animation: neon-beam 2.5s ease-in-out infinite;
+}
+
+
+@keyframes wave {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0%;
+  }
+}
+
+.animate-wave {
+  background-size: 100% 300%;
+  animation: wave 3s linear infinite;
+}
+
+
+/* Button glow style (optional) */
+.button-glow {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+.button-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+
+
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+.blur-in img {
+  filter: blur(10px);
+  transition: filter 1.2s ease;
+}
+
+.fade-in.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blur-in.reveal img {
+  filter: blur(0px);
+}
+
+/* Optional parallax effect */
+.parallax {
+  will-change: transform;
+}
+
+@keyframes neon-border {
+  0% {
+    box-shadow:
+      0 0 20px rgba(255, 165, 0, 0.7),
+      0 0 40px rgba(0, 123, 255, 0.5),
+      0 0 60px rgba(255, 165, 0, 0.6);
+    border-color: rgba(255, 165, 0, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(0, 123, 255, 0.8),
+      0 0 60px rgba(255, 165, 0, 0.5),
+      0 0 80px rgba(0, 123, 255, 0.7);
+    border-color: rgba(0, 123, 255, 0.9);
+  }
+  100% {
+    box-shadow:
+      0 0 20px rgba(255, 165, 0, 0.7),
+      0 0 40px rgba(0, 123, 255, 0.5),
+      0 0 60px rgba(255, 165, 0, 0.6);
+    border-color: rgba(255, 165, 0, 0.8);
+  }
+}
+
+.glow-border {
+  border-width: 8px;
+  border-style: solid;
+  border-radius: 1.25rem; /* rounded-2xl */
+  padding: 0.75rem;       /* p-3 */
+  animation: neon-border 3s ease-in-out infinite;
+}
+
+@keyframes pulse-border-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-glow-border {
+  border-radius: 1.5rem; /* large rounding */
+  padding: 10px; /* space for border */
+  background: linear-gradient(270deg, #ff7300, #007bff, #ff7300);
+  background-size: 600% 600%;
+  animation: pulse-border-gradient 6s ease infinite;
+  box-shadow:
+    0 0 25px rgba(255, 115, 0, 0.6),
+    0 0 50px rgba(0, 123, 255, 0.5),
+    0 0 75px rgba(255, 115, 0, 0.4);
+}
+@keyframes glowBorder {
+  0% {
+    filter: drop-shadow(0 0 4px #ff7300) drop-shadow(0 0 6px #007bff);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px #ff7300) drop-shadow(0 0 10px #007bff);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px #ff7300) drop-shadow(0 0 6px #007bff);
+  }
+}
+
+.animate-glow-border {
+  animation: glowBorder 4s ease-in-out infinite;
+}
+
