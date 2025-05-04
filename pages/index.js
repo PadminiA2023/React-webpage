@@ -98,7 +98,7 @@ export default function Home() {
           <section className="w-full flex justify-center py-20 fade-in-up">
             <div className="gradient-glow-border">
               <img
-                src="/images/solution-details.png"
+                src="/images/hero-image.png"
                 alt="AWS Solution Screenshot"
                 className="max-w-4xl w-full rounded-2xl shadow-xl"
               />
@@ -530,6 +530,57 @@ export default function Home() {
   ))}
 </div>
 
+    </div>
+  </div>
+</section>
+
+
+
+{/* 🎥 Industrial IoT in Action Section */}
+<section className="w-full bg-white py-20 px-6 sm:px-12 lg:px-24">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
+      Industrial IoT in Action
+    </h2>
+    <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+      Explore real-world demos of OPC UA Server & Monitoring<br />
+      Watch how industrial protocols like OPC UA are used in real-time to simulate server behavior and monitor telemetry data across a connected ecosystem. These hands-on demonstrations reveal the power of unified data access and standards-based communication in smart factory environments.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {/* Video Tile 1 */}
+      <div className="overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+        <video
+          className="w-full h-64 object-cover"
+          controls
+          poster="/images/opc-server-thumbnail.png"
+        >
+          <source src="/videos/opc-ua-ss-vid.mp4" type="video/mp4" />
+        </video>
+        <div className="p-6 bg-white">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">OPC UA Server Simulation</h3>
+          <p className="text-sm text-gray-600">
+            Demonstrates how to simulate industrial devices using OPC UA standards and publish telemetry in real-time.
+          </p>
+        </div>
+      </div>
+
+      {/* Video Tile 2 */}
+      <div className="overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+        <video
+          className="w-full h-64 object-cover"
+          controls
+          poster="/images/prosys-monitor-thumbnail.png"
+        >
+          <source src="/videos/opc-ua-monitor.mp4" type="video/mp4" />
+        </video>
+        <div className="p-6 bg-white">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">OPC UA Monitoring Tool</h3>
+          <p className="text-sm text-gray-600">
+            See how OPC UA clients subscribe to live telemetry streams for visualization and machine diagnostics.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
