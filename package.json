@@ -9,6 +9,7 @@
     "dependencies": {
         "next": "latest",
         "react": "latest",
+        "react-countup": "^6.5.3",
         "react-dom": "latest"
     },
     "devDependencies": {

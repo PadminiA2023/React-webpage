@@ -1,12 +1,45 @@
 import Head from 'next/head';
+import NeonButton from '../components/NeonButton';
+import CountUp from 'react-countup';
 import AnimatedBackground from '../components/AnimatedBackground';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+// TILE COMPONENT
+function Tile({ title, details }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      onClick={() => setExpanded(!expanded)}
+      className={`rounded-2xl p-6 shadow-lg text-white transition-all transform hover:scale-105 cursor-pointer bg-cover bg-center`}
+      style={{
+        backgroundImage: "url('/images/tilebg.png')",
+      }}
+    >
+      <h3 className="text-xl font-semibold text-center mb-2">{title}</h3>
+
+      <div className="text-center mb-2">
+        <span className="inline-block text-xl transition-transform duration-300">
+          {expanded ? '↓' : '→'}
+        </span>
+      </div>
+
+      <div
+        className={`transition-all ease-in-out duration-500 overflow-hidden ${
+          expanded ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <p className="text-sm text-center">{details}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-up');
           }
@@ -15,7 +48,7 @@ export default function Home() {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
   }, []);
 
   return (
@@ -46,9 +79,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* BACKGROUND + CONTENT */}
+      {/* BACKGROUND */}
       <AnimatedBackground>
         <main className="relative z-10 flex flex-col items-center justify-start px-6 sm:px-12 lg:px-24 text-left">
+
           {/* HERO */}
           <div className="pt-40 text-left max-w-2xl fade-in-up">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
@@ -57,12 +91,10 @@ export default function Home() {
             <p className="text-lg sm:text-xl text-gray-300 mb-8">
               Bridge the gap between data and decision-making with our customized IoT solutions.
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-semibold rounded-full shadow-lg hover:opacity-90 transition">
-              Get Started →
-            </button>
+            <NeonButton onClick={() => router.push('/signup')}>Get Started →</NeonButton>
           </div>
 
-          {/* SCREENSHOT IMAGE */}
+          {/* IMAGE SECTION */}
           <section className="w-full flex justify-center py-20 fade-in-up">
             <div className="gradient-glow-border">
               <img
@@ -73,7 +105,7 @@ export default function Home() {
             </div>
           </section>
 
-{/* 🔥 Key Solutions Section */}
+      {/* 🔥 Key Solutions Section */}
 <section
   className="w-full py-20 px-6 sm:px-12 lg:px-24 fade-in-up"
   id="core-solutions"
@@ -81,6 +113,8 @@ export default function Home() {
   <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
     Our Core Solutions
   </h2>
+
+
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {/* Card 1 */}
@@ -134,6 +168,76 @@ export default function Home() {
   </div>
 </section>
 
+
+
+          {/* TILE SECTION WITH METRICS */}
+          <section className="w-full bg-white py-20">
+            <div className="px-6 sm:px-12 lg:px-24">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
+                Industrial Data Fabric
+              </h2>
+              <p className="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
+                A modern consulting solution to unify industrial IoT data, improve operational efficiency, and unlock critical business insights.
+              </p>
+
+              {/* TILES */}
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  {
+                    title: "Data Integration",
+                    details: "Seamless ingestion from OPC-UA, Modbus TCP, MQTT, SQL, and REST APIs—across edge and cloud.",
+                  },
+                  {
+                    title: "Insight Enablement",
+                    details: "Enable real-time insights like OEE, MTTR, MTBF, Shift Performance, and Root Cause Analysis.",
+                  },
+                  {
+                    title: "Custom Interfaces",
+                    details: "Deliver tailored dashboards and UI components built atop standardized industrial hierarchies.",
+                  },
+                  {
+                    title: "Operational Excellence",
+                    details: "Improve uptime, reduce costs, and enable predictive monitoring with scalable IoT data fabric.",
+                  },
+                ].map((tile, index) => (
+                  <Tile key={index} title={tile.title} details={tile.details} />
+                ))}
+              </div>
+
+              {/* METRICS */}
+              <div className="mt-20 bg-gray-100 rounded-2xl py-12 px-4 sm:px-8 lg:px-16">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                  <div>
+                    <p className="text-3xl font-bold text-gray-900">
+                      <CountUp end={12} duration={2} />+ TB
+                    </p>
+                    <p className="text-sm text-gray-600">Industrial data processed daily</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-gray-900">
+                      <CountUp end={150} duration={2.5} />+
+                    </p>
+                    <p className="text-sm text-gray-600">Connected factory sites</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-gray-900">
+                      <CountUp end={99.98} duration={2.5} decimals={2} />%
+                    </p>
+                    <p className="text-sm text-gray-600">Uptime across IoT edge nodes</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-gray-900">
+                      <CountUp end={40} duration={2} />%
+                    </p>
+                    <p className="text-sm text-gray-600">Average reduction in downtime</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          
+
 {/* 📝 Multi-domain IoT Solutions – Enhanced Layout */}
 <section
   id="multi-domain"
@@ -175,50 +279,48 @@ export default function Home() {
         reduce costs, and unlock real-time insights through a seamless sensor-to-dashboard pipeline.
       </p>
 
-      <ul className="space-y-4">
-        {[
-          {
-            iconBg: "from-orange-500 to-yellow-400",
-            title: "Manufacturing",
-            desc: "Predictive maintenance to minimize downtime & optimize supply chains.",
-          },
-          {
-            iconBg: "from-green-400 to-teal-500",
-            title: "CPG",
-            desc: "Demand forecasting & personalized engagement via connected devices.",
-          },
-          {
-            iconBg: "from-purple-500 to-indigo-500",
-            title: "Life Sciences",
-            desc: "Lab & bioreactor monitoring for yield improvement.",
-          },
-          {
-            iconBg: "from-blue-500 to-cyan-400",
-            title: "Energy",
-            desc: "Smart grid management & real-time monitoring of renewables.",
-          },
-        ].map((item, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4 fade-in-up"
-            style={{ animationDelay: `${0.8 + i * 0.2}s` }}
-          >
-            {/* colored glowing dot */}
-            <div
-              className={`
-                flex-shrink-0 w-4 h-4 mt-1 rounded-full
-                bg-gradient-to-tr ${item.iconBg}
-                shadow-lg shadow-${item.iconBg.split(" ")[0]}/70
-                animate-pulse
-              `}
-            />
-            <div>
-              <p className="text-white font-semibold">{item.title}</p>
-              <p className="text-gray-300">{item.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {/* Replace the <ul>...</ul> with: */}
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
+  {[
+    {
+      title: "Manufacturing",
+      description: "Predictive maintenance to minimize downtime & optimize supply chains.",
+      color: "from-orange-500 to-yellow-400",
+    },
+    {
+      title: "CPG",
+      description: "Demand forecasting & personalized engagement via connected devices.",
+      color: "from-green-400 to-teal-500",
+    },
+    {
+      title: "Life Sciences",
+      description: "Lab & bioreactor monitoring for yield improvement.",
+      color: "from-purple-500 to-indigo-500",
+    },
+    {
+      title: "Energy",
+      description: "Smart grid management & real-time monitoring of renewables.",
+      color: "from-blue-500 to-cyan-400",
+    },
+  ].map((item, idx) => (
+    <div key={idx} className="group perspective w-full h-48">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+        {/* Front Side */}
+        <div
+          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-bold text-lg backface-hidden`}
+        >
+          {item.title}
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+          {item.description}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
 
       <div className="fade-in-up" style={{ animationDelay: "1.6s" }}>
         <a
@@ -275,55 +377,52 @@ export default function Home() {
         from monolithic servers to orchestrated, cloud‐native containers.
       </p>
 
-      <ul className="space-y-4">
-        {[
-          {
-            iconBg: "from-purple-500 to-indigo-500",
-            title: "Lightweight Containerization",
-            desc: "Package applications and their dependencies into portable, self-contained images that run consistently across environments.",
-          },
-          {
-            iconBg: "from-blue-400 to-cyan-500",
-            title: "Ecosystem & Orchestrators",
-            desc: "Leverage Docker, Amazon ECS/EKS, Google GKE, Azure AKS, Nomad or OpenShift for automated deployment, scaling, and management.",
-          },
-          {
-            iconBg: "from-green-400 to-teal-500",
-            title: "Operational Efficiency",
-            desc: "Reduce infrastructure overhead and accelerate CI/CD pipelines with immutable containers that spin up in seconds and scale on-demand.",
-          },
-          {
-            iconBg: "from-yellow-400 to-orange-500",
-            title: "Cost & Performance Insights",
-            desc: "Measure ROI through deployment velocity, resource utilization, and failure-rate metrics—align modernization with clear business KPIs.",
-          },
-          {
-            iconBg: "from-pink-500 to-purple-400",
-            title: "Roadmap to Production",
-            desc: "Start with a discovery workshop, build a container pilot, validate orchestration proof-of-concept, then roll out with governance and monitoring.",
-          },
-        ].map((item, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4 fade-in-up"
-            style={{ animationDelay: `${0.8 + i * 0.2}s` }}
-          >
-            {/* colored glowing dot */}
-            <div
-              className={`
-                flex-shrink-0 w-4 h-4 mt-1 rounded-full
-                bg-gradient-to-tr ${item.iconBg}
-                shadow-lg shadow-${item.iconBg.split(" ")[0]}/70
-                animate-pulse
-              `}
-            />
-            <div>
-              <p className="text-white font-semibold">{item.title}</p>
-              <p className="text-gray-300">{item.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
+  {[
+    {
+      title: "Lightweight Containerization",
+      description: "Package applications and their dependencies into portable, self-contained images that run consistently across environments.",
+      color: "from-purple-500 to-indigo-500",
+    },
+    {
+      title: "Ecosystem & Orchestrators",
+      description: "Leverage Docker, Amazon ECS/EKS, Google GKE, Azure AKS, Nomad or OpenShift for automated deployment, scaling, and management.",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      title: "Operational Efficiency",
+      description: "Reduce infrastructure overhead and accelerate CI/CD pipelines with containers that spin up in seconds and scale on-demand.",
+      color: "from-green-400 to-teal-500",
+    },
+    {
+      title: "Cost & Performance Insights",
+      description: "Measure ROI via deployment velocity, resource usage, and failure-rate metrics—align modernization with business KPIs.",
+      color: "from-yellow-400 to-orange-500",
+    },
+    {
+      title: "Roadmap to Production",
+      description: "Start with discovery, build a pilot, validate orchestration PoC, and roll out with governance and monitoring.",
+      color: "from-pink-500 to-purple-400",
+    },
+  ].map((item, idx) => (
+    <div key={idx} className="group perspective w-full h-48">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+        {/* Front */}
+        <div
+          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden`}
+        >
+          {item.title}
+        </div>
+
+        {/* Back */}
+        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+          {item.description}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
 
       <div className="fade-in-up" style={{ animationDelay: "1.8s" }}>
         <a
@@ -379,64 +478,58 @@ export default function Home() {
         synthesizes insights in real-time, and drives innovation across your Industrial IoT landscape.
       </p>
 
-      <ul className="space-y-4">
-        {[
-          {
-            color: "from-orange-400 to-pink-500",
-            title: "Strategic AI Integration",
-            desc: "Embed generative models into your data pipelines to auto-draft technical reports and generate adaptive dashboards.",
-          },
-          {
-            color: "from-blue-400 to-indigo-500",
-            title: "Workflow Automation",
-            desc: "Leverage AI agents for anomaly detection, predictive maintenance alerts, and contextual root-cause analysis.",
-          },
-          {
-            color: "from-green-400 to-teal-500",
-            title: "Custom Model Training",
-            desc: "Fine-tune domain-specific LLMs or diffusion models on your operational data for higher accuracy and relevance.",
-          },
-          {
-            color: "from-yellow-400 to-orange-500",
-            title: "Hybrid Deployment",
-            desc: "Choose between managed SaaS (Amazon Bedrock, Azure OpenAI) or self-hosted solutions for compliance and data control.",
-          },
-          {
-            color: "from-purple-500 to-pink-400",
-            title: "Trust & Explainability",
-            desc: "Implement provenance tracking, human-in-the-loop validation, and transparent audit logs to ensure reliability.",
-          },
-          {
-            color: "from-red-400 to-pink-500",
-            title: "High-Impact Use Cases",
-            desc: "From auto-generating equipment manuals to AI-powered energy optimization and intelligent supply-chain forecasts.",
-          },
-          {
-            color: "from-blue-500 to-cyan-400",
-            title: "Getting Started",
-            desc: "Run a rapid prototype: pick one use case, build a PoC, then iterate via MLOps best practices to scale.",
-          },
-        ].map((item, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4 fade-in-up"
-            style={{ animationDelay: `${0.8 + i * 0.2}s` }}
-          >
-            <div
-              className={`
-                flex-shrink-0 w-4 h-4 mt-1 rounded-full
-                bg-gradient-to-tr ${item.color}
-                shadow-lg shadow-${item.color.split(" ")[0]}/60
-                animate-pulse
-              `}
-            />
-            <div>
-              <p className="text-white font-semibold">{item.title}</p>
-              <p className="text-gray-300">{item.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
+  {[
+    {
+      title: "Strategic AI Integration",
+      description: "Embed generative models into your data pipelines to auto-draft technical reports and generate adaptive dashboards.",
+      color: "from-red-500 to-orange-500",
+    },
+    {
+      title: "Workflow Automation",
+      description: "Leverage AI agents for anomaly detection, predictive maintenance alerts, and contextual root-cause analysis.",
+      color: "from-blue-500 to-indigo-500",
+    },
+    {
+      title: "Custom Model Training",
+      description: "Fine-tune domain-specific LLMs or diffusion models on your operational data for higher accuracy and relevance.",
+      color: "from-green-400 to-teal-500",
+    },
+    {
+      title: "Hybrid Deployment",
+      description: "Choose between managed SaaS (Amazon Bedrock, Azure OpenAI) or self-hosted solutions for compliance and data control.",
+      color: "from-yellow-400 to-orange-500",
+    },
+    {
+      title: "Trust & Explainability",
+      description: "Implement provenance tracking, human-in-the-loop validation, and transparent audit logs to ensure reliability.",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      title: "High-Impact Use Cases",
+      description: "From auto-generating equipment manuals to AI-powered energy optimization and intelligent supply-chain forecasts.",
+      color: "from-pink-500 to-red-400",
+    },
+    
+  ].map((item, idx) => (
+    <div key={idx} className="group perspective w-full h-48">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+        {/* Front */}
+        <div
+          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden`}
+        >
+          {item.title}
+        </div>
+
+        {/* Back */}
+        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+          {item.description}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
     </div>
   </div>
 </section>

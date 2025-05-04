@@ -221,3 +221,76 @@ html {
   animation: glowBorder 4s ease-in-out infinite;
 }
 
+/* ——————————————— */
+/* Expandable Tiles Section */
+/* ——————————————— */
+
+.tile {
+  background-image: url('/tile-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.tile:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tile h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tile-arrow {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.tile-arrow.rotate {
+  transform: rotate(90deg);
+}
+
+.tile-content {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #ddd;
+}
+
+.tile-content.expanded {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.group:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg);
+}
