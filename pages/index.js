@@ -281,46 +281,45 @@ export default function Home() {
       </p>
 
       {/* Replace the <ul>...</ul> with: */}
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
   {[
     {
       title: "Manufacturing",
       description: "Predictive maintenance to minimize downtime & optimize supply chains.",
-      color: "from-orange-500 to-yellow-400",
     },
     {
       title: "CPG",
       description: "Demand forecasting & personalized engagement via connected devices.",
-      color: "from-green-400 to-teal-500",
     },
     {
       title: "Life Sciences",
       description: "Lab & bioreactor monitoring for yield improvement.",
-      color: "from-purple-500 to-indigo-500",
     },
     {
       title: "Energy",
       description: "Smart grid management & real-time monitoring of renewables.",
-      color: "from-blue-500 to-cyan-400",
     },
   ].map((item, idx) => (
     <div key={idx} className="group perspective w-full h-48">
       <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
         {/* Front Side */}
         <div
-          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-bold text-lg backface-hidden`}
+          className="absolute w-full h-full bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] text-white rounded-2xl flex items-center justify-center font-bold text-lg backface-hidden transform transition-transform duration-300 hover:scale-105"
         >
           {item.title}
         </div>
 
         {/* Back Side */}
-        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+        <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
           {item.description}
         </div>
       </div>
     </div>
   ))}
 </div>
+
+
+
 
 
       <div className="fade-in-up" style={{ animationDelay: "1.6s" }}>
@@ -382,47 +381,43 @@ export default function Home() {
   {[
     {
       title: "Lightweight Containerization",
-      description: "Package applications and their dependencies into portable, self-contained images that run consistently across environments.",
-      color: "from-purple-500 to-indigo-500",
+      description: "Package applications and dependencies into portable, consistent images.",
     },
     {
       title: "Ecosystem & Orchestrators",
-      description: "Leverage Docker, Amazon ECS/EKS, Google GKE, Azure AKS, Nomad or OpenShift for automated deployment, scaling, and management.",
-      color: "from-blue-500 to-cyan-500",
+      description: "Use Docker, ECS/EKS, GKE, AKS, and OpenShift for container orchestration.",
     },
     {
       title: "Operational Efficiency",
-      description: "Reduce infrastructure overhead and accelerate CI/CD pipelines with containers that spin up in seconds and scale on-demand.",
-      color: "from-green-400 to-teal-500",
+      description: "Reduce infra overhead and enable faster CI/CD scaling on demand.",
     },
     {
       title: "Cost & Performance Insights",
-      description: "Measure ROI via deployment velocity, resource usage, and failure-rate metrics—align modernization with business KPIs.",
-      color: "from-yellow-400 to-orange-500",
+      description: "Track ROI using metrics like deployment velocity, utilization, and failure rate.",
     },
     {
       title: "Roadmap to Production",
-      description: "Start with discovery, build a pilot, validate orchestration PoC, and roll out with governance and monitoring.",
-      color: "from-pink-500 to-purple-400",
+      description: "Plan PoCs, validate orchestration, and scale production with governance.",
     },
   ].map((item, idx) => (
     <div key={idx} className="group perspective w-full h-48">
       <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        {/* Front */}
+        {/* Front Side */}
         <div
-          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden`}
+          className="absolute w-full h-full bg-gradient-to-br from-[#1e1b4b] to-[#3b0764] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105"
         >
           {item.title}
         </div>
 
-        {/* Back */}
-        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+        {/* Back Side */}
+        <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
           {item.description}
         </div>
       </div>
     </div>
   ))}
 </div>
+
 
 
       <div className="fade-in-up" style={{ animationDelay: "1.8s" }}>
@@ -483,53 +478,47 @@ export default function Home() {
   {[
     {
       title: "Strategic AI Integration",
-      description: "Embed generative models into your data pipelines to auto-draft technical reports and generate adaptive dashboards.",
-      color: "from-red-500 to-orange-500",
+      description: "Auto-generate reports and dashboards from industrial data pipelines using LLMs.",
     },
     {
       title: "Workflow Automation",
-      description: "Leverage AI agents for anomaly detection, predictive maintenance alerts, and contextual root-cause analysis.",
-      color: "from-blue-500 to-indigo-500",
+      description: "Enable predictive maintenance, anomaly detection, and root cause analysis.",
     },
     {
       title: "Custom Model Training",
-      description: "Fine-tune domain-specific LLMs or diffusion models on your operational data for higher accuracy and relevance.",
-      color: "from-green-400 to-teal-500",
+      description: "Fine-tune LLMs and diffusion models on factory data for domain accuracy.",
     },
     {
       title: "Hybrid Deployment",
-      description: "Choose between managed SaaS (Amazon Bedrock, Azure OpenAI) or self-hosted solutions for compliance and data control.",
-      color: "from-yellow-400 to-orange-500",
+      description: "Deploy via AWS Bedrock, Azure OpenAI, or on-prem options for full control.",
     },
     {
       title: "Trust & Explainability",
-      description: "Implement provenance tracking, human-in-the-loop validation, and transparent audit logs to ensure reliability.",
-      color: "from-purple-500 to-pink-500",
+      description: "Build human-in-the-loop workflows with audit trails and traceable outputs.",
     },
     {
       title: "High-Impact Use Cases",
-      description: "From auto-generating equipment manuals to AI-powered energy optimization and intelligent supply-chain forecasts.",
-      color: "from-pink-500 to-red-400",
+      description: "From energy optimization to dynamic SOP generation across verticals.",
     },
-    
   ].map((item, idx) => (
     <div key={idx} className="group perspective w-full h-48">
       <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        {/* Front */}
+        {/* Front Side */}
         <div
-          className={`absolute w-full h-full bg-gradient-to-br ${item.color} text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden`}
+          className="absolute w-full h-full bg-gradient-to-br from-[#241a3e] to-[#0e0a1b] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105"
         >
           {item.title}
         </div>
 
-        {/* Back */}
-        <div className="absolute w-full h-full bg-white text-gray-800 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+        {/* Back Side */}
+        <div className="absolute w-full h-full bg-[#0f0a1a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
           {item.description}
         </div>
       </div>
     </div>
   ))}
 </div>
+
 
     </div>
   </div>
