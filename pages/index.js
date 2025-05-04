@@ -322,15 +322,7 @@ export default function Home() {
 
 
 
-      <div className="fade-in-up" style={{ animationDelay: "1.6s" }}>
-        <a
-          href="#"
-          className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500
-                     text-white font-medium rounded-full shadow-xl hover:opacity-90 transition"
-        >
-          Explore More →
-        </a>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -420,15 +412,7 @@ export default function Home() {
 
 
 
-      <div className="fade-in-up" style={{ animationDelay: "1.8s" }}>
-        <a
-          href="#"
-          className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-blue-400 to-purple-500
-                     text-white font-medium rounded-full shadow-xl hover:opacity-90 transition"
-        >
-          Explore More →
-        </a>
-      </div>
+      
     </div>
   </div>
 </section>
