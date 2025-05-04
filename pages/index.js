@@ -118,7 +118,8 @@ export default function Home() {
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {/* Card 1 */}
-    <div className="relative bg-black bg-opacity-50 border border-purple-600 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/50 transition">
+    <div className="relative bg-black bg-opacity-50 border border-purple-600 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/50 transition transform duration-300 hover:scale-105">
+
       <h3 className="text-xl font-semibold text-orange-400 mb-4">
         Multi-domain IoT Solutions
       </h3>
@@ -135,7 +136,7 @@ export default function Home() {
     </div>
 
     {/* Card 2 */}
-    <div className="bg-black bg-opacity-50 border border-blue-500 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
+    <div className="bg-black bg-opacity-50 border border-blue-500 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition transform duration-300 hover:scale-105">
       <h3 className="text-xl font-semibold text-blue-400 mb-4">
         Container Platform Modernization
       </h3>
@@ -151,7 +152,7 @@ export default function Home() {
     </div>
 
     {/* Card 3 */}
-    <div className="bg-black bg-opacity-50 border border-pink-500 rounded-2xl p-6 shadow-lg hover:shadow-pink-500/50 transition">
+    <div className="bg-black bg-opacity-50 border border-pink-500 rounded-2xl p-6 shadow-lg hover:shadow-pink-500/50 transition transform duration-300 hover:scale-105">
       <h3 className="text-xl font-semibold text-pink-400 mb-4">
         Advanced Generative AI Solutions
       </h3>
