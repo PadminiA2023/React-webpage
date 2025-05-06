@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import AnimatedBackground from '../components/AnimatedBackground';
 import { useEffect, useState } from 'react';
 
+
 // TILE COMPONENT
 function Tile({ title, details }) {
   const [expanded, setExpanded] = useState(false);
@@ -253,81 +254,56 @@ export default function Home() {
     }}
   />
 
-  <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-    {/* Left: Diagram */}
-    <div className="w-full lg:w-1/2 fade-in-up" style={{ animationDelay: "0.2s" }}>
-      <img
-        src="/images/iot.gif"
-        alt="Sensors → Cloud → Dashboard"
-        className="w-full rounded-2xl shadow-2xl"
-      />
-    </div>
+  <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center space-y-10">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up">
+      Multi-domain IoT Solutions
+    </h2>
 
-    {/* Right: Text Content */}
-    <div className="w-full lg:w-1/2 space-y-8">
-      <h2
-        className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up"
-        style={{ animationDelay: "0.4s" }}
-      >
-        Multi-domain IoT Solutions
-      </h2>
+    <p className="text-gray-300 leading-relaxed fade-in-up max-w-3xl">
+      Elevate your operations with AWS IoT enabled solutions. We help businesses drive automation,
+      reduce costs, and unlock real-time insights through a seamless sensor-to-dashboard pipeline.
+    </p>
 
-      <p
-        className="text-gray-300 leading-relaxed fade-in-up"
-        style={{ animationDelay: "0.6s" }}
-      >
-        Elevate your operations with AWS IoT enabled solutions. We help businesses drive automation,
-        reduce costs, and unlock real-time insights through a seamless sensor-to-dashboard pipeline.
-      </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
+      {[
+        {
+          title: "Manufacturing",
+          description: "Predictive maintenance to minimize downtime & optimize supply chains.",
+        },
+        {
+          title: "CPG",
+          description: "Demand forecasting & personalized engagement via connected devices.",
+        },
+        {
+          title: "Life Sciences",
+          description: "Lab & bioreactor monitoring for yield improvement.",
+        },
+        {
+          title: "Energy",
+          description: "Smart grid management & real-time monitoring of renewables.",
+        },
+      ].map((item, idx) => (
+        <div key={idx} className="group perspective w-full h-48">
+          <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+            {/* Front Side */}
+            <div className="absolute w-full h-full bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] text-white rounded-2xl flex items-center justify-center font-bold text-lg backface-hidden transform transition-transform duration-300 hover:scale-105">
+              {item.title}
+            </div>
 
-      {/* Replace the <ul>...</ul> with: */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
-  {[
-    {
-      title: "Manufacturing",
-      description: "Predictive maintenance to minimize downtime & optimize supply chains.",
-    },
-    {
-      title: "CPG",
-      description: "Demand forecasting & personalized engagement via connected devices.",
-    },
-    {
-      title: "Life Sciences",
-      description: "Lab & bioreactor monitoring for yield improvement.",
-    },
-    {
-      title: "Energy",
-      description: "Smart grid management & real-time monitoring of renewables.",
-    },
-  ].map((item, idx) => (
-    <div key={idx} className="group perspective w-full h-48">
-      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        {/* Front Side */}
-        <div
-          className="absolute w-full h-full bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] text-white rounded-2xl flex items-center justify-center font-bold text-lg backface-hidden transform transition-transform duration-300 hover:scale-105"
-        >
-          {item.title}
+            {/* Back Side */}
+            <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+              {item.description}
+            </div>
+          </div>
         </div>
-
-        {/* Back Side */}
-        <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
-          {item.description}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-
-
-
-
-      
+      ))}
     </div>
   </div>
 </section>
 
-{/* 🐳 Container Platform Modernization – Enhanced Layout */}
+
+
+{/* 🐳 Container Platform Modernization – Centered Layout */}
 <section
   id="container-modernization"
   className="relative overflow-hidden py-24 px-6 sm:px-12 lg:px-24"
@@ -341,83 +317,60 @@ export default function Home() {
     }}
   />
 
-  <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-    {/* Left: Illustration or GIF */}
-    <div className="w-full lg:w-1/2 fade-in-up" style={{ animationDelay: "0.2s" }}>
-      <img
-        src="/images/container.gif"
-        alt="Container Modernization Workflow"
-        className="w-full rounded-2xl shadow-2xl"
-      />
-    </div>
+  <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center space-y-10">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up">
+      Container Platform Modernization
+    </h2>
 
-    {/* Right: Text Content */}
-    <div className="w-full lg:w-1/2 space-y-8">
-      <h2
-        className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up"
-        style={{ animationDelay: "0.4s" }}
-      >
-        Container Platform Modernization
-      </h2>
+    <p className="text-gray-300 leading-relaxed fade-in-up max-w-3xl">
+      Modern container platforms deliver faster deployments, better resource efficiency, and
+      enterprise-grade resilience. We help you assess, plan, and execute a seamless migration
+      from monolithic servers to orchestrated, cloud‐native containers.
+    </p>
 
-      <p
-        className="text-gray-300 leading-relaxed fade-in-up"
-        style={{ animationDelay: "0.6s" }}
-      >
-        Modern container platforms deliver faster deployments, better resource efficiency, and
-        enterprise-grade resilience. We help you assess, plan, and execute a seamless migration
-        from monolithic servers to orchestrated, cloud‐native containers.
-      </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
+      {[
+        {
+          title: "Lightweight Containerization",
+          description: "Package applications and dependencies into portable, consistent images.",
+        },
+        {
+          title: "Ecosystem & Orchestrators",
+          description: "Use Docker, ECS/EKS, GKE, AKS, and OpenShift for container orchestration.",
+        },
+        {
+          title: "Operational Efficiency",
+          description: "Reduce infra overhead and enable faster CI/CD scaling on demand.",
+        },
+        {
+          title: "Cost & Performance Insights",
+          description: "Track ROI using metrics like deployment velocity, utilization, and failure rate.",
+        },
+        {
+          title: "Roadmap to Production",
+          description: "Plan PoCs, validate orchestration, and scale production with governance.",
+        },
+      ].map((item, idx) => (
+        <div key={idx} className="group perspective w-full h-48">
+          <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+            {/* Front Side */}
+            <div className="absolute w-full h-full bg-gradient-to-br from-[#1e1b4b] to-[#3b0764] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105">
+              {item.title}
+            </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full">
-  {[
-    {
-      title: "Lightweight Containerization",
-      description: "Package applications and dependencies into portable, consistent images.",
-    },
-    {
-      title: "Ecosystem & Orchestrators",
-      description: "Use Docker, ECS/EKS, GKE, AKS, and OpenShift for container orchestration.",
-    },
-    {
-      title: "Operational Efficiency",
-      description: "Reduce infra overhead and enable faster CI/CD scaling on demand.",
-    },
-    {
-      title: "Cost & Performance Insights",
-      description: "Track ROI using metrics like deployment velocity, utilization, and failure rate.",
-    },
-    {
-      title: "Roadmap to Production",
-      description: "Plan PoCs, validate orchestration, and scale production with governance.",
-    },
-  ].map((item, idx) => (
-    <div key={idx} className="group perspective w-full h-48">
-      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        {/* Front Side */}
-        <div
-          className="absolute w-full h-full bg-gradient-to-br from-[#1e1b4b] to-[#3b0764] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105"
-        >
-          {item.title}
+            {/* Back Side */}
+            <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+              {item.description}
+            </div>
+          </div>
         </div>
-
-        {/* Back Side */}
-        <div className="absolute w-full h-full bg-[#0f172a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
-          {item.description}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-
-
-      
+      ))}
     </div>
   </div>
 </section>
 
-{/* 🤖 Advanced Generative AI Enabled Solutions */}
+
+{/* 🤖 Advanced Generative AI Enabled Solutions – Centered Layout */}
 <section
   id="gen-ai"
   className="relative overflow-hidden py-24 px-6 sm:px-12 lg:px-24 fade-in-up"
@@ -431,82 +384,61 @@ export default function Home() {
     }}
   />
 
-  <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-16">
-    {/* Left: Optional Illustration/GIF */}
-    <div className="w-full lg:w-1/2 fade-in-up" style={{ animationDelay: "0.2s" }}>
-      <img
-        src="/images/gen.gif"
-        alt="Generative AI Workflow"
-        className="w-full rounded-2xl shadow-2xl"
-      />
-    </div>
+  <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center space-y-10">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up">
+      Advanced Generative AI Enabled Solutions
+    </h2>
 
-    {/* Right: Text Content */}
-    <div className="w-full lg:w-1/2 space-y-8">
-      <h2
-        className="text-3xl sm:text-4xl font-extrabold text-white fade-in-up"
-        style={{ animationDelay: "0.4s" }}
-      >
-        Advanced Generative AI Enabled Solutions
-      </h2>
+    <p className="text-gray-300 leading-relaxed fade-in-up max-w-3xl">
+      Empower your organization with cutting-edge generative AI that automates complex workflows,
+      synthesizes insights in real-time, and drives innovation across your Industrial IoT landscape.
+    </p>
 
-      <p
-        className="text-gray-300 leading-relaxed fade-in-up"
-        style={{ animationDelay: "0.6s" }}
-      >
-        Empower your organization with cutting-edge generative AI that automates complex workflows,
-        synthesizes insights in real-time, and drives innovation across your Industrial IoT landscape.
-      </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
+      {[
+        {
+          title: "Strategic AI Integration",
+          description: "Auto-generate reports and dashboards from industrial data pipelines using LLMs.",
+        },
+        {
+          title: "Workflow Automation",
+          description: "Enable predictive maintenance, anomaly detection, and root cause analysis.",
+        },
+        {
+          title: "Custom Model Training",
+          description: "Fine-tune LLMs and diffusion models on factory data for domain accuracy.",
+        },
+        {
+          title: "Hybrid Deployment",
+          description: "Deploy via AWS Bedrock, Azure OpenAI, or on-prem options for full control.",
+        },
+        {
+          title: "Trust & Explainability",
+          description: "Build human-in-the-loop workflows with audit trails and traceable outputs.",
+        },
+        {
+          title: "High-Impact Use Cases",
+          description: "From energy optimization to dynamic SOP generation across verticals.",
+        },
+      ].map((item, idx) => (
+        <div key={idx} className="group perspective w-full h-48">
+          <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+            {/* Front Side */}
+            <div className="absolute w-full h-full bg-gradient-to-br from-[#241a3e] to-[#0e0a1b] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105">
+              {item.title}
+            </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
-  {[
-    {
-      title: "Strategic AI Integration",
-      description: "Auto-generate reports and dashboards from industrial data pipelines using LLMs.",
-    },
-    {
-      title: "Workflow Automation",
-      description: "Enable predictive maintenance, anomaly detection, and root cause analysis.",
-    },
-    {
-      title: "Custom Model Training",
-      description: "Fine-tune LLMs and diffusion models on factory data for domain accuracy.",
-    },
-    {
-      title: "Hybrid Deployment",
-      description: "Deploy via AWS Bedrock, Azure OpenAI, or on-prem options for full control.",
-    },
-    {
-      title: "Trust & Explainability",
-      description: "Build human-in-the-loop workflows with audit trails and traceable outputs.",
-    },
-    {
-      title: "High-Impact Use Cases",
-      description: "From energy optimization to dynamic SOP generation across verticals.",
-    },
-  ].map((item, idx) => (
-    <div key={idx} className="group perspective w-full h-48">
-      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-        {/* Front Side */}
-        <div
-          className="absolute w-full h-full bg-gradient-to-br from-[#241a3e] to-[#0e0a1b] text-white rounded-2xl flex items-center justify-center font-semibold text-md backface-hidden transform transition-transform duration-300 hover:scale-105"
-        >
-          {item.title}
+            {/* Back Side */}
+            <div className="absolute w-full h-full bg-[#0f0a1a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
+              {item.description}
+            </div>
+          </div>
         </div>
-
-        {/* Back Side */}
-        <div className="absolute w-full h-full bg-[#0f0a1a] text-gray-200 rounded-2xl p-4 flex items-center justify-center text-sm text-center rotate-y-180 backface-hidden">
-          {item.description}
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-
+      ))}
     </div>
   </div>
 </section>
+
 
 
 
@@ -559,10 +491,54 @@ export default function Home() {
   </div>
 </section>
 
+{/* 🌌 Footer */}
+<footer className="bg-black border-t border-gray-800 text-gray-400 py-8 px-6 sm:px-12 lg:px-24 mt-24">
+  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm">
+
+    {/* Left: Copyright & Links */}
+    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center">
+      <p>© {new Date().getFullYear()} Data Destination. All rights reserved.</p>
+      <a href="#" className="hover:text-white transition">Terms of Service</a>
+      <a href="#" className="hover:text-white transition">Privacy Policy</a>
+    </div>
+
+    {/* Middle: Social Icons */}
+    <div className="flex items-center gap-4 text-lg text-gray-500">
+      <a href="#" className="hover:text-white transition"><i className="fab fa-x-twitter" /></a>
+      <a href="#" className="hover:text-white transition"><i className="fab fa-linkedin-in" /></a>
+      <a href="#" className="hover:text-white transition"><i className="fab fa-github" /></a>
+      <a href="#" className="hover:text-white transition"><i className="fab fa-youtube" /></a>
+      <a href="#" className="hover:text-white transition"><i className="fab fa-slack" /></a>
+    </div>
+
+    {/* Right: Pixel Heart */}
+    {/* Right: Pixel Heart + Text */}
+    <div className="flex items-center gap-2 text-sm text-orange-400">
+      <span className="w-5 h-5 animate-pulse">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="text-orange-500"
+        >
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
+                   4.42 3 7.5 3c1.74 0 3.41 0.81 
+                   4.5 2.09C13.09 3.81 14.76 3 16.5 3 
+                   19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+                   6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </span>
+      <span>Made with passion and Data Destination</span>
+    </div>
+
+  </div>
+</footer>
 
 
-        </main>
-      </AnimatedBackground>
+
+</main>
+</AnimatedBackground>
+
     </>
   );
 }
