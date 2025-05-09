@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const logos = [
   '/images/ge.png', '/images/siemens.png', '/images/abb.png',
@@ -6,9 +6,7 @@ const logos = [
   '/images/bp.png', '/images/schneider.png', '/images/engie.png',
   '/images/pfizer.png',
   '/images/novartis.png',
-  '/images/iff.png',
-  '/images/unilever.png',
-  '/images/nestle.png'
+  '/images/iff.png', '/images/unilever.png', '/images/nestle.png'
 ];
 
 export default function CustomerShowcase() {
@@ -16,13 +14,14 @@ export default function CustomerShowcase() {
   const [direction, setDirection] = useState('forward');
   const [fade, setFade] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [inView, setInView] = useState(false);
   const displayCount = 6;
   const total = logos.length;
+  const sectionRef = useRef();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(false);
-
       setTimeout(() => {
         setStartIndex((prev) => {
           if (direction === 'forward') {
@@ -47,6 +46,17 @@ export default function CustomerShowcase() {
     return () => clearInterval(interval);
   }, [direction, total]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   const getVisibleLogos = () => {
     const endIndex = startIndex + displayCount;
     if (endIndex <= total) {
@@ -57,21 +67,29 @@ export default function CustomerShowcase() {
   };
 
   return (
-   <section className="relative w-full min-h-[300px] overflow-hidden">
-
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-[300px] overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="relative z-10 text-white px-6 py-8">
-        <h2 className="text-3xl font-bold mb-4 text-center">
+        <h2
+          className={`text-3xl font-bold mb-4 text-center transform transition duration-700 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
           Trusted by Global Leaders Across Industries
         </h2>
-        <p className="max-w-2xl mx-auto text-center mb-8 text-gray-300">
+        <p
+          className={`max-w-2xl mx-auto text-center mb-8 text-gray-300 transform transition duration-5000 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
           From automotive and energy giants to life sciences pioneers and CPG innovators like IFF, Data Destination drives digital transformation at scale.
         </p>
 
-        <div
-          className="relative max-w-6xl mx-auto overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="relative max-w-6xl mx-auto overflow-hidden">
           <div
             className={`grid grid-cols-6 gap-4 transition-opacity duration-500 ${
               fade ? 'opacity-100' : 'opacity-0'
