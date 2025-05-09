@@ -93,14 +93,19 @@ export default function Home() {
 <section className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
   <h1 className="text-4xl md:text-6xl font-bold mb-6">
     Accelerate Industrial Transformation with <br/>
-     Industrial Data Fabric
+     Data Fabric
   </h1>
   <p className="text-lg md:text-xl mb-8 max-w-2xl md:max-w-3xl">
     Seamlessly integrate, contextualize, and deliver real-time industrial IoT data across your enterprise — from the edge to the cloud — unlocking actionable insights, improved operations, and scalable innovation.
   </p>
-  <button className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+  <div class="holographic-button-container">
+  <button class="holographic-button">
     Get Started →
   </button>
+</div>
+
+
+
 </section>
 
 

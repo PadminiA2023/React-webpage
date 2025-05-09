@@ -275,3 +275,87 @@ html {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes tilt {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+.animate-tilt {
+  animation: tilt 3s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes holo-border {
+  0% {
+    border-image-source: linear-gradient(270deg, #ec4899, #8b5cf6, #3b82f6);
+    border-image-slice: 1;
+  }
+  50% {
+    border-image-source: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+  }
+  100% {
+    border-image-source: linear-gradient(270deg, #ec4899, #8b5cf6, #3b82f6);
+  }
+}
+
+.animate-holo-border {
+  border-width: 2px;
+  border-style: solid;
+  border-image-slice: 1;
+  animation: holo-border 3s linear infinite;
+}
+
+
+/*get started button*/
+
+.holographic-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.holographic-button {
+  position: relative;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #111; /* dark button base */
+  border: none;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.holographic-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 150, 255, 0.6),  /* vivid blue shimmer */
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.8);  /* vivid blue glow */
+}
+
+.holographic-button:hover::before {
+  opacity: 1;
+  transform: rotate(45deg) translateY(100%);
+}
