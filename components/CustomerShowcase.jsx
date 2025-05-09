@@ -11,6 +11,7 @@ const logos = [
 
 export default function CustomerShowcase() {
   const [startIndex, setStartIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const displayCount = 6;
   const total = logos.length;
 
@@ -40,9 +41,18 @@ export default function CustomerShowcase() {
           From automotive and energy giants to life sciences pioneers and CPG innovators like IFF, Data Destination drives digital transformation at scale.
         </p>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${startIndex * (100 / displayCount)}%)` }}
+        <div
+          className="relative max-w-6xl mx-auto"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div
+            className={`flex transition-transform duration-700 ease-in-out ${
+              isHovered ? 'blur-sm' : ''
+            }`}
+            style={{
+              transform: `translateX(-${startIndex * (100 / displayCount)}%)`
+            }}
           >
             {logos.concat(logos).map((logo, idx) => (
               <div key={idx} className="flex-none w-1/6 px-4 py-2">
@@ -54,6 +64,15 @@ export default function CustomerShowcase() {
               </div>
             ))}
           </div>
+
+          {/* Button overlay on hover */}
+          {isHovered && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button className="bg-gray-800 text-gray-200 px-6 py-3 rounded-full shadow-lg border border-gray-600 text-lg transform hover:scale-110 hover:bg-gray-700 transition">
+                Know More About Our Customers →
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
