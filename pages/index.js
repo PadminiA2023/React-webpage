@@ -3,6 +3,8 @@ import NeonButton from '../components/NeonButton';
 import CountUp from 'react-countup';
 import AnimatedBackground from '../components/AnimatedBackground';
 import CustomerShowcase from '../components/CustomerShowcase';
+import { motion } from 'framer-motion';
+
 
 import { useEffect, useState } from 'react';
 
@@ -87,15 +89,37 @@ export default function Home() {
         <main className="relative z-10 flex flex-col items-center justify-start px-6 sm:px-12 lg:px-24 text-left">
 
           {/* HERO */}
-          <div className="pt-40 text-left max-w-2xl fade-in-up">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-              Your Journey to Intelligent Operations Starts Here
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-8">
-              Bridge the gap between data and decision-making with our customized IoT solutions.
-            </p>
-            <NeonButton onClick={() => router.push('/signup')}>Get Started →</NeonButton>
-          </div>
+<div className="pt-40 text-left max-w-2xl">
+  <motion.h1
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+    className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6"
+  >
+    Accelerate Industrial Transformation with a Unified Data Fabric
+  </motion.h1>
+
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, delay: 0.3 }}
+    className="text-lg sm:text-xl text-gray-300 mb-8"
+  >
+    Seamlessly integrate, contextualize, and deliver real-time industrial IoT data across your enterprise — from the edge to the cloud — unlocking actionable insights, improved operations, and scalable innovation.
+  </motion.p>
+
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, delay: 0.6 }}
+  >
+    <NeonButton onClick={() => router.push('/signup')}>Get Started →</NeonButton>
+  </motion.div>
+</div>
+
 
           {/* IMAGE SECTION */}
           <section className="w-full flex justify-center py-20 fade-in-up">
