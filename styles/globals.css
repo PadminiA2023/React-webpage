@@ -8,55 +8,20 @@ html {
 }
 
 
-/* Glowing vertical beam animation */
-@keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.7;
-    transform: scaleY(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleY(1.05);
-  }
+@keyframes subtleBlueGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-pulse-slow {
-  animation: pulse-slow 8s ease-in-out infinite;
+.animate-subtle-blue-gradient {
+  background-size: 400% 400%;
+  animation: subtleBlueGradient 40s ease infinite;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 0% 200%;
-  }
-}
 
-.animate-shimmer {
-  background-size: 100% 200%;
-  animation: shimmer 6s linear infinite;
-}
 
-/* New Core Energy Beam Animation */
-@keyframes energy-beam {
-  0% {
-    transform: scaleY(1) translateY(0);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scaleY(1.02) translateY(-2px);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(1) translateY(0);
-    opacity: 0.9;
-  }
-}
 
-.animate-energy-beam {
-  animation: energy-beam 3s ease-in-out infinite;
-}
 
 @keyframes neon-beam {
   0%, 100% {
