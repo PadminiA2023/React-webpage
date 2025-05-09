@@ -6,21 +6,46 @@ const logos = [
   '/images/bp.png', '/images/schneider.png', '/images/engie.png',
   '/images/pfizer.png',
   '/images/novartis.png',
-  '/images/iff.png', '/images/unilever.png', '/images/nestle.png'
+  '/images/iff.png',
+  '/images/unilever.png',
+  '/images/nestle.png'
 ];
 
 export default function CustomerShowcase() {
   const [startIndex, setStartIndex] = useState(0);
+  const [direction, setDirection] = useState('forward');
+  const [fade, setFade] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const displayCount = 6;
   const total = logos.length;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + displayCount) % total);
+      setFade(false);
+
+      setTimeout(() => {
+        setStartIndex((prev) => {
+          if (direction === 'forward') {
+            if (prev + displayCount >= total) {
+              setDirection('backward');
+              return prev - displayCount;
+            } else {
+              return prev + displayCount;
+            }
+          } else {
+            if (prev - displayCount < 0) {
+              setDirection('forward');
+              return prev + displayCount;
+            } else {
+              return prev - displayCount;
+            }
+          }
+        });
+        setFade(true);
+      }, 500);
     }, 3000);
     return () => clearInterval(interval);
-  }, [total]);
+  }, [direction, total]);
 
   const getVisibleLogos = () => {
     const endIndex = startIndex + displayCount;
@@ -32,7 +57,8 @@ export default function CustomerShowcase() {
   };
 
   return (
-    <section className="relative w-full min-h-[300px] bg-transparent overflow-hidden">
+   <section className="relative w-full min-h-[300px] overflow-hidden">
+
       <div className="relative z-10 text-white px-6 py-8">
         <h2 className="text-3xl font-bold mb-4 text-center">
           Trusted by Global Leaders Across Industries
@@ -42,30 +68,26 @@ export default function CustomerShowcase() {
         </p>
 
         <div
-          className="relative max-w-6xl mx-auto"
+          className="relative max-w-6xl mx-auto overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <div
-            className={`flex transition-transform duration-700 ease-in-out ${
-              isHovered ? 'blur-sm' : ''
-            }`}
-            style={{
-              transform: `translateX(-${startIndex * (100 / displayCount)}%)`
-            }}
+            className={`grid grid-cols-6 gap-4 transition-opacity duration-500 ${
+              fade ? 'opacity-100' : 'opacity-0'
+            } ${isHovered ? 'blur-sm' : ''}`}
           >
-            {logos.concat(logos).map((logo, idx) => (
-              <div key={idx} className="flex-none w-1/6 px-4 py-2">
+            {getVisibleLogos().map((logo, idx) => (
+              <div key={idx} className="flex justify-center items-center">
                 <img
                   src={logo}
                   alt={`Customer logo ${idx + 1}`}
-                  className="h-12 mx-auto grayscale hover:grayscale-0 transition duration-500"
+                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition duration-500"
                 />
               </div>
             ))}
           </div>
 
-          {/* Button overlay on hover */}
           {isHovered && (
             <div className="absolute inset-0 flex items-center justify-center">
               <button className="bg-gray-800 text-gray-200 px-6 py-3 rounded-full shadow-lg border border-gray-600 text-lg transform hover:scale-110 hover:bg-gray-700 transition">
