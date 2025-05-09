@@ -86,39 +86,34 @@ export default function Home() {
 
       {/* BACKGROUND */}
       <AnimatedBackground>
-        <main className="relative z-10 flex flex-col items-center justify-start px-6 sm:px-12 lg:px-24 text-left">
+       <main className="relative z-10 flex flex-col items-center justify-start w-full">
+
 
           {/* HERO */}
-<div className="pt-40 text-left max-w-2xl">
-  <motion.h1
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1 }}
-    className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6"
-  >
-    Accelerate Industrial Transformation with a Unified Data Fabric
-  </motion.h1>
-
-  <motion.p
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1, delay: 0.3 }}
-    className="text-lg sm:text-xl text-gray-300 mb-8"
-  >
+<section className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
+  <h1 className="text-4xl md:text-6xl font-bold mb-6">
+    Accelerate Industrial Transformation with <br/>
+     Industrial Data Fabric
+  </h1>
+  <p className="text-lg md:text-xl mb-8 max-w-2xl md:max-w-3xl">
     Seamlessly integrate, contextualize, and deliver real-time industrial IoT data across your enterprise — from the edge to the cloud — unlocking actionable insights, improved operations, and scalable innovation.
-  </motion.p>
+  </p>
+  <button className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+    Get Started →
+  </button>
+</section>
 
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1, delay: 0.6 }}
-  >
-    <NeonButton onClick={() => router.push('/signup')}>Get Started →</NeonButton>
-  </motion.div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
           {/* IMAGE SECTION */}
