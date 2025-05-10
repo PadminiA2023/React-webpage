@@ -11,7 +11,8 @@ const fadeUp = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 px-6 sm:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="why-choose-us" className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
+
       {/* LEFT SIDE */}
       <motion.div
   className="max-w-lg"

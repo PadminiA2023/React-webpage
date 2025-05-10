@@ -7,6 +7,8 @@ import IndustrialTiles from '../components/IndustrialTiles';
 import MetricsSection from '../components/MetricsSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import CoreSolutions from '../components/CoreSolutions';
+import Advantages from "../components/Advantages";
+
 
 import { motion } from 'framer-motion';
 import { useTypewriter } from 'react-simple-typewriter';
@@ -169,7 +171,12 @@ const [text] = useTypewriter({
 </div>
 
 <div className="flex flex-col md:flex-row gap-4 justify-center items-center my-12">
-  <button className="holographic-button">
+  <button
+    onClick={() => {
+      document.getElementById("why-choose-us")?.scrollIntoView({ behavior: "smooth" });
+    }}
+    className="holographic-button"
+  >
     Why Choose Us?
   </button>
   <a href="#iot-action" className="holographic-button">
@@ -363,13 +370,16 @@ const [text] = useTypewriter({
 
 
 {/* 🎥 Industrial IoT in Action Section */}
-<section id="iot-action" className="w-full bg-gradient-to-b from-gray-900 to-gray-950 py-20">
+<section id="iot-action" className="w-full bg-transparent py-20">
+
 
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
+    <h2 className="text-4xl font-extrabold text-white text-center mb-4">
+
       Industrial IoT in Action
     </h2>
-    <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+    <p className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12">
+
       Explore real-world demos of OPC UA Server & Monitoring<br />
       Watch how industrial protocols like OPC UA are used in real-time to simulate server behavior and monitor telemetry data across a connected ecosystem. These hands-on demonstrations reveal the power of unified data access and standards-based communication in smart factory environments.
     </p>
@@ -411,6 +421,43 @@ const [text] = useTypewriter({
     </div>
   </div>
 </section>
+
+
+{/*Advantages Section*/}
+{/*<section className="w-full px-6 py-24 sm:px-12 lg:px-24 bg-black text-white text-center">
+  <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+    Still exploring options?
+  </h2>
+  <p className="text-xl sm:text-2xl font-semibold text-gray-300 mb-12">
+    We connect what others miss.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Instant Root Cause Detection
+    </div>
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Actionable Intelligence, Always
+    </div>
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Predictive Insights, Not Just Reports
+    </div>
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Seamless Sensor-to-Dashboard Flow
+    </div>
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Unified Visibility Across Devices
+    </div>
+    <div className="text-xl font-semibold text-gray-400 hover:text-blue-400 transition">
+      Built for Speed, Scale & Security
+    </div>
+  </div>
+</section>  */}
+
+
+ <Advantages />
+
+
 
 
 
