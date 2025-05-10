@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import AnimatedBackground from '../components/AnimatedBackground';
 import CustomerShowcase from '../components/CustomerShowcase';
 import IndustrialTiles from '../components/IndustrialTiles';
+import MetricsSection from '../components/MetricsSection';
 
 import { motion } from 'framer-motion';
 
@@ -155,7 +156,18 @@ const [text] = useTypewriter({
   <IndustrialTiles />
 </div>
 
+<div className="flex flex-col md:flex-row gap-4 justify-center items-center my-12">
+  <button className="holographic-button">
+    Why Choose Us?
+  </button>
+  <a href="#iot-action" className="holographic-button">
+    Explore More
+  </a>
+</div>
 
+
+
+<MetricsSection />
 
 
 
@@ -438,7 +450,8 @@ const [text] = useTypewriter({
 
 
 {/* 🎥 Industrial IoT in Action Section */}
-<section className="w-full bg-gradient-to-b from-gray-900 to-gray-950 py-20">
+<section id="iot-action" className="w-full bg-gradient-to-b from-gray-900 to-gray-950 py-20">
+
 
   <div className="max-w-7xl mx-auto">
     <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">

@@ -418,3 +418,16 @@ html {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+
+
+.holographic-button {
+  background: #4b5563; /* Tailwind's gray-700 hex */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition: background 0.3s;
+}
+.holographic-button:hover {
+  background: #6b7280; /* Tailwind's gray-600 hex */
+}
