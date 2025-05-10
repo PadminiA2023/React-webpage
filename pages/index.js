@@ -8,12 +8,8 @@ import MetricsSection from '../components/MetricsSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import CoreSolutions from '../components/CoreSolutions';
 
-
-
 import { motion } from 'framer-motion';
-
 import { useTypewriter } from 'react-simple-typewriter';
-
 import { useEffect, useState } from 'react';
 
 import {
@@ -23,12 +19,27 @@ import {
   BatteryCharging,
 } from "lucide-react";
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
+
 import {
   LayoutGrid,
   Cloud,
   ShieldCheck,
   Settings2
 } from "lucide-react";
+
 
 import {
   BrainCircuit,
@@ -151,23 +162,8 @@ const [text] = useTypewriter({
 
 
 
-      
+{/* TILE SECTION WITH METRICS */}
           
-          
-          
-          
-          
-         
-
-
-
-
-
-          {/* TILE SECTION WITH METRICS */}
-          
- 
-
-
 <div className="mt-20">
   <IndustrialTiles />
 </div>
@@ -189,10 +185,8 @@ const [text] = useTypewriter({
 <WhyChooseUs />
 
 
+<CustomerShowcase />
 
-
-
- <CustomerShowcase />
 
 <CoreSolutions />
 
@@ -201,153 +195,175 @@ const [text] = useTypewriter({
 
 {/* 📝 Multi-domain IoT Solutions – Enhanced Layout */}
 
-
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
-  <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false, amount: 0.2 }}
+    variants={fadeInUp}
+  >
+    <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+      
+      {/* LEFT - Text */}
+      <div className="lg:w-5/12">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+          Multi-domain IoT Solutions
+        </h2>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Elevate your operations with AWS IoT enabled solutions. We help businesses drive automation,
+          reduce costs, and unlock real-time insights through a seamless sensor-to-dashboard pipeline.
+        </p>
+      </div>
 
-    {/* LEFT - Text */}
-    <div className="lg:w-5/12">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-        Multi-domain IoT Solutions
-      </h2>
-      <p className="text-lg text-gray-300 leading-relaxed">
-        Elevate your operations with AWS IoT enabled solutions. We help businesses drive automation,
-        reduce costs, and unlock real-time insights through a seamless sensor-to-dashboard pipeline.
-      </p>
+      {/* RIGHT - Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
+        {[
+          { icon: Factory, title: 'Manufacturing', desc: 'Factory automation, robotics integration, and predictive analytics for industrial floors.' },
+          { icon: Package, title: 'CPG', desc: 'Optimize consumer goods production with inventory analytics and real-time batch monitoring.' },
+          { icon: TestTube, title: 'Life Sciences', desc: 'Track compliance, cold chain data, and automate clinical device alerts.' },
+          { icon: BatteryCharging, title: 'Energy', desc: 'Enable smart metering, remote diagnostics, and grid performance monitoring.' },
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={fadeInUp}
+            className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
+            hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
+            flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
+          >
+            <div className="flex items-center gap-2 justify-center mb-2">
+              <item.icon className="w-7 h-9 text-blue-400" />
+              <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+            </div>
+            <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
+            <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+              {item.desc}
+            </p>
+          </motion.div>
+        ))}
+      </div>
     </div>
-
-    {/* RIGHT - Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
-      {[
-        { icon: Factory, title: 'Manufacturing', desc: 'Factory automation, robotics integration, and predictive analytics for industrial floors.' },
-        { icon: Package, title: 'CPG', desc: 'Optimize consumer goods production with inventory analytics and real-time batch monitoring.' },
-        { icon: TestTube, title: 'Life Sciences', desc: 'Track compliance, cold chain data, and automate clinical device alerts.' },
-        { icon: BatteryCharging, title: 'Energy', desc: 'Enable smart metering, remote diagnostics, and grid performance monitoring.' },
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
-          hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
-          flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
-        >
-          <div className="flex items-center gap-2 justify-center mb-2">
-           <item.icon className="w-7 h-9 text-blue-400" />
-
-            <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
-          </div>
-          <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
-          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
+  </motion.div>
 </section>
-
-
-
-
-
 
 
 {/* 🐳 Container Platform Modernization – Centered Layout */}
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
-  <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
-
-    {/* LEFT - Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
-      {[
-  { icon: LayoutGrid, title: 'Microservices Ready', desc: 'Deploy, scale, and manage microservices architectures with container orchestration.' },
-  { icon: Cloud, title: 'Hybrid Deployment', desc: 'Run workloads across cloud and on-premise with unified control and monitoring.' },
-  { icon: ShieldCheck, title: 'Security First', desc: 'Ensure workload isolation, access control, and vulnerability scanning.' },
-  { icon: Settings2, title: 'DevOps Enabled', desc: 'Integrate CI/CD pipelines, observability tools, and GitOps workflows seamlessly.' },
-].map((item, idx) => (
-  <div
-    key={idx}
-    className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
-    hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
-    flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false, amount: 0.2 }}
+    variants={fadeInUp}
   >
-    <div className="flex items-center gap-2 justify-center mb-2">
-      <item.icon className="w-7 h-9 text-blue-400" />
-      <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
-    </div>
-    <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
-    <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-      {item.desc}
-    </p>
-  </div>
-))}
+    <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
 
-    </div>
+      {/* LEFT - Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
+        {[
+          { icon: LayoutGrid, title: 'Microservices Ready', desc: 'Deploy, scale, and manage microservices architectures with container orchestration.' },
+          { icon: Cloud, title: 'Hybrid Deployment', desc: 'Run workloads across cloud and on-premise with unified control and monitoring.' },
+          { icon: ShieldCheck, title: 'Security First', desc: 'Ensure workload isolation, access control, and vulnerability scanning.' },
+          { icon: Settings2, title: 'DevOps Enabled', desc: 'Integrate CI/CD pipelines, observability tools, and GitOps workflows seamlessly.' },
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={fadeInUp}
+            className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
+            hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
+            flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
+          >
+            <div className="flex items-center gap-2 justify-center mb-2">
+              <item.icon className="w-7 h-9 text-blue-400" />
+              <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+            </div>
+            <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
+            <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+              {item.desc}
+            </p>
+          </motion.div>
+        ))}
+      </div>
 
-    {/* RIGHT - Text */}
-    <div className="lg:w-5/12">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-        Container Platform Modernization
-      </h2>
-      <p className="text-lg text-gray-300 leading-relaxed">
-        Modernize your application infrastructure with a secure, scalable, and automated container platform.
-        Accelerate innovation by leveraging containerized microservices, CI/CD workflows, and hybrid cloud deployments.
-      </p>
+      {/* RIGHT - Text */}
+      <div className="lg:w-5/12">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+          Container Platform Modernization
+        </h2>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Modernize your application infrastructure with a secure, scalable, and automated container platform.
+          Accelerate innovation by leveraging containerized microservices, CI/CD workflows, and hybrid cloud deployments.
+        </p>
+      </div>
     </div>
-  </div>
+  </motion.div>
 </section>
-
 
 
 {/* 🤖 Advanced Generative AI Enabled Solutions – Centered Layout */}
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
-  <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
-
-    {/* LEFT - Text */}
-    <div className="lg:w-5/12">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-        Advanced Generative AI Solutions
-      </h2>
-      <p className="text-lg text-gray-300 leading-relaxed">
-        Empower your organization with cutting-edge generative AI capabilities that enhance decision-making,
-        automate complex workflows, and unlock new avenues of innovation across your IoT ecosystem.
-      </p>
-    </div>
-
-    {/* RIGHT - Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
-      {[
-  { icon: BrainCircuit, title: 'Custom Model Training', desc: 'Fine-tune generative models on proprietary data for domain-specific accuracy.' },
-  { icon: Bot, title: 'AI-Powered Workflows', desc: 'Deploy LLMs to automate reporting, diagnostics, and documentation tasks.' },
-  { icon: CloudCog, title: 'Hybrid Deployment Options', desc: 'Use managed (SaaS) or self-hosted generative solutions for compliance.' },
-  { icon: FileSearch2, title: 'Trust & Explainability', desc: 'Maintain audit trails and integrate human-in-the-loop validation pipelines.' },
-].map((item, idx) => (
-  <div
-    key={idx}
-    className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
-    hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
-    flex flex-col items-center text-center min-h-[100px] hover:min-h-[190px]"
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false, amount: 0.2 }}
+    variants={fadeInUp}
   >
-    <div className="flex items-center gap-2 justify-center mb-2">
-      <item.icon className="w-7 h-9 text-blue-400" />
-      <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
-    </div>
-    <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
-    <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-      {item.desc}
-    </p>
-  </div>
-))}
+    <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
 
+      {/* LEFT - Text */}
+      <div className="lg:w-5/12">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+          Advanced Generative AI Solutions
+        </h2>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Empower your organization with cutting-edge generative AI capabilities that enhance decision-making,
+          automate complex workflows, and unlock new avenues of innovation across your IoT ecosystem.
+        </p>
+      </div>
+
+      {/* RIGHT - Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
+        {[
+          { icon: BrainCircuit, title: 'Custom Model Training', desc: 'Fine-tune generative models on proprietary data for domain-specific accuracy.' },
+          { icon: Bot, title: 'AI-Powered Workflows', desc: 'Deploy LLMs to automate reporting, diagnostics, and documentation tasks.' },
+          { icon: CloudCog, title: 'Hybrid Deployment Options', desc: 'Use managed (SaaS) or self-hosted generative solutions for compliance.' },
+          { icon: FileSearch2, title: 'Trust & Explainability', desc: 'Maintain audit trails and integrate human-in-the-loop validation pipelines.' },
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={fadeInUp}
+            className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
+            hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
+            flex flex-col items-center text-center min-h-[100px] hover:min-h-[190px]"
+          >
+            <div className="flex items-center gap-2 justify-center mb-2">
+              <item.icon className="w-7 h-9 text-blue-400" />
+              <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+            </div>
+            <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
+            <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+              {item.desc}
+            </p>
+          </motion.div>
+        ))}
+      </div>
     </div>
-  </div>
+  </motion.div>
 </section>
-
-
-
 
 
 {/* 🎥 Industrial IoT in Action Section */}
 <section id="iot-action" className="w-full bg-gradient-to-b from-gray-900 to-gray-950 py-20">
-
 
   <div className="max-w-7xl mx-auto">
     <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
@@ -396,6 +412,8 @@ const [text] = useTypewriter({
   </div>
 </section>
 
+
+
 {/* 🌌 Footer */}
 <footer className="w-full bg-transparent border-t border-gray-800 text-gray-400 py-8 px-6 sm:px-12">
   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm">
@@ -437,9 +455,6 @@ const [text] = useTypewriter({
 
   </div>
 </footer>
-
-
-
 
 </main>
 </AnimatedBackground>
