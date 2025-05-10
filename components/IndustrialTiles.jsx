@@ -39,9 +39,10 @@ export default function IndustrialTiles() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="relative w-full flex flex-col justify-center items-center text-center mt-24"
     >
-      <h1 className="text-2xl md:text-4xl font-bold mb-4 text-white">
-        Industrial Data Fabric
-      </h1>
+      <h2 className="text-5xl font-extrabold text-center mb-6 mt-[-20px] text-white">
+  Industrial Data Fabric
+</h2>
+
       <p className="text-lg md:text-xl max-w-3xl md:max-w-4xl mx-auto mb-10 text-gray-300 leading-relaxed">
   Discover how Industrial Data Fabric bridges the gap between the edge and the enterprise, integrating diverse data sources into a unified layer that enables predictive analytics, agile decision-making, and resilient operations. Whether you’re driving manufacturing efficiency, energy optimization, or smart asset management — this is the platform that empowers your teams to act faster and smarter.
 </p>

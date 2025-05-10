@@ -458,6 +458,73 @@ const [text] = useTypewriter({
  <Advantages />
 
 
+<section className="w-full bg-black text-white py-24 px-6 sm:px-12 lg:px-24">
+  <h2 className="text-5xl font-bold mb-16">Contact Us</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 text-base">
+    
+    {/* Products */}
+    <div>
+      <h3 className="text-2xl font-semibold mb-4">Products</h3>
+      <ul className="space-y-3">
+        {['AI', 'Enterprise', 'Fluid Compute', 'Next.js', 'Observability', 'Previews', 'Rendering', 'Security', 'Turbo', 'v0 ↗'].map((item, i) => (
+          <li
+            key={i}
+            className="hover:text-blue-400 hover:drop-shadow-[0_0_5px_rgba(0,153,255,0.8)] transition duration-300 cursor-pointer"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Resources */}
+    <div>
+      <h3 className="text-2xl font-semibold mb-4">Resources</h3>
+      <ul className="space-y-3">
+        {['Community ↗', 'Docs', 'Guides', 'Help', 'Integrations', 'Pricing', 'Resources', 'Solution Partners', 'Startups', 'Templates'].map((item, i) => (
+          <li
+            key={i}
+            className="hover:text-blue-400 hover:drop-shadow-[0_0_5px_rgba(0,153,255,0.8)] transition duration-300 cursor-pointer"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Company */}
+    <div>
+      <h3 className="text-2xl font-semibold mb-4">Company</h3>
+      <ul className="space-y-3">
+        {['About', 'Blog', 'Careers', 'Changelog', 'Contact Us', 'Customers', 'Partners', 'Privacy Policy', 'Legal ▾'].map((item, i) => (
+          <li
+            key={i}
+            className="hover:text-blue-400 hover:drop-shadow-[0_0_5px_rgba(0,153,255,0.8)] transition duration-300 cursor-pointer"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Social */}
+    <div>
+      <h3 className="text-2xl font-semibold mb-4">Social</h3>
+      <ul className="space-y-3">
+        {['GitHub', 'LinkedIn', 'Twitter', 'YouTube'].map((item, i) => (
+          <li
+            key={i}
+            className="hover:text-blue-400 hover:drop-shadow-[0_0_5px_rgba(0,153,255,0.8)] transition duration-300 cursor-pointer"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
 
 
