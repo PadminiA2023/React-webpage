@@ -16,6 +16,28 @@ import { useTypewriter } from 'react-simple-typewriter';
 
 import { useEffect, useState } from 'react';
 
+import {
+  Factory,
+  Package,
+  TestTube,
+  BatteryCharging,
+} from "lucide-react";
+
+import {
+  LayoutGrid,
+  Cloud,
+  ShieldCheck,
+  Settings2
+} from "lucide-react";
+
+import {
+  BrainCircuit,
+  Bot,
+  CloudCog,
+  FileSearch2,
+} from "lucide-react";
+
+
 
 // TILE COMPONENT
 function Tile({ title, details }) {
@@ -175,18 +197,15 @@ const [text] = useTypewriter({
 <CoreSolutions />
 
   
-
-
-
-          
-
-          
+ 
 
 {/* 📝 Multi-domain IoT Solutions – Enhanced Layout */}
+
+
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
   <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
 
-    {/* LEFT - Heading */}
+    {/* LEFT - Text */}
     <div className="lg:w-5/12">
       <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
         Multi-domain IoT Solutions
@@ -197,13 +216,13 @@ const [text] = useTypewriter({
       </p>
     </div>
 
-    {/* RIGHT - Interactive Grid */}
+    {/* RIGHT - Cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
       {[
-        { title: 'Manufacturing', desc: 'Factory automation, robotics integration, and predictive analytics for industrial floors.' },
-        { title: 'CPG', desc: 'Optimize consumer goods production with inventory analytics and real-time batch monitoring.' },
-        { title: 'Life Sciences', desc: 'Track compliance, cold chain data, and automate clinical device alerts.' },
-        { title: 'Energy', desc: 'Enable smart metering, remote diagnostics, and grid performance monitoring.' },
+        { icon: Factory, title: 'Manufacturing', desc: 'Factory automation, robotics integration, and predictive analytics for industrial floors.' },
+        { icon: Package, title: 'CPG', desc: 'Optimize consumer goods production with inventory analytics and real-time batch monitoring.' },
+        { icon: TestTube, title: 'Life Sciences', desc: 'Track compliance, cold chain data, and automate clinical device alerts.' },
+        { icon: BatteryCharging, title: 'Energy', desc: 'Enable smart metering, remote diagnostics, and grid performance monitoring.' },
       ].map((item, idx) => (
         <div
           key={idx}
@@ -211,9 +230,11 @@ const [text] = useTypewriter({
           hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
           flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
         >
-          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
-            {item.title}
-          </h3>
+          <div className="flex items-center gap-2 justify-center mb-2">
+           <item.icon className="w-7 h-9 text-blue-400" />
+
+            <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+          </div>
           <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
           <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
             {item.desc}
@@ -228,6 +249,8 @@ const [text] = useTypewriter({
 
 
 
+
+
 {/* 🐳 Container Platform Modernization – Centered Layout */}
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
   <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
@@ -235,26 +258,28 @@ const [text] = useTypewriter({
     {/* LEFT - Cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
       {[
-        { title: 'Microservices Ready', desc: 'Deploy, scale, and manage microservices architectures with container orchestration.' },
-        { title: 'Hybrid Deployment', desc: 'Run workloads across cloud and on-premise with unified control and monitoring.' },
-        { title: 'Security First', desc: 'Ensure workload isolation, access control, and vulnerability scanning.' },
-        { title: 'DevOps Enabled', desc: 'Integrate CI/CD pipelines, observability tools, and GitOps workflows seamlessly.' },
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
-          hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
-          flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
-        >
-          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
-            {item.title}
-          </h3>
-          <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
-          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-            {item.desc}
-          </p>
-        </div>
-      ))}
+  { icon: LayoutGrid, title: 'Microservices Ready', desc: 'Deploy, scale, and manage microservices architectures with container orchestration.' },
+  { icon: Cloud, title: 'Hybrid Deployment', desc: 'Run workloads across cloud and on-premise with unified control and monitoring.' },
+  { icon: ShieldCheck, title: 'Security First', desc: 'Ensure workload isolation, access control, and vulnerability scanning.' },
+  { icon: Settings2, title: 'DevOps Enabled', desc: 'Integrate CI/CD pipelines, observability tools, and GitOps workflows seamlessly.' },
+].map((item, idx) => (
+  <div
+    key={idx}
+    className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
+    hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
+    flex flex-col items-center text-center min-h-[100px] hover:min-h-[180px]"
+  >
+    <div className="flex items-center gap-2 justify-center mb-2">
+      <item.icon className="w-7 h-9 text-blue-400" />
+      <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+    </div>
+    <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
+    <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+      {item.desc}
+    </p>
+  </div>
+))}
+
     </div>
 
     {/* RIGHT - Text */}
@@ -290,26 +315,28 @@ const [text] = useTypewriter({
     {/* RIGHT - Cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-7/12">
       {[
-        { title: 'Custom Model Training', desc: 'Fine-tune generative models on proprietary data for domain-specific accuracy.' },
-        { title: 'AI-Powered Workflows', desc: 'Deploy LLMs to automate reporting, diagnostics, and documentation tasks.' },
-        { title: 'Hybrid Deployment Options', desc: 'Use managed (SaaS) or self-hosted generative solutions for compliance.' },
-        { title: 'Trust & Explainability', desc: 'Maintain audit trails and integrate human-in-the-loop validation pipelines.' },
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
-          hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
-          flex flex-col items-center text-center min-h-[100px] hover:min-h-[190px]"
-        >
-          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
-            {item.title}
-          </h3>
-          <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
-          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-            {item.desc}
-          </p>
-        </div>
-      ))}
+  { icon: BrainCircuit, title: 'Custom Model Training', desc: 'Fine-tune generative models on proprietary data for domain-specific accuracy.' },
+  { icon: Bot, title: 'AI-Powered Workflows', desc: 'Deploy LLMs to automate reporting, diagnostics, and documentation tasks.' },
+  { icon: CloudCog, title: 'Hybrid Deployment Options', desc: 'Use managed (SaaS) or self-hosted generative solutions for compliance.' },
+  { icon: FileSearch2, title: 'Trust & Explainability', desc: 'Maintain audit trails and integrate human-in-the-loop validation pipelines.' },
+].map((item, idx) => (
+  <div
+    key={idx}
+    className="group bg-[#1c1c2a] p-8 rounded-2xl transition-all duration-500 ease-in-out
+    hover:shadow-[0_0_25px_5px_#3b82f6] hover:scale-[1.03] cursor-pointer
+    flex flex-col items-center text-center min-h-[100px] hover:min-h-[190px]"
+  >
+    <div className="flex items-center gap-2 justify-center mb-2">
+      <item.icon className="w-7 h-9 text-blue-400" />
+      <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
+    </div>
+    <div className="w-8 h-[3px] bg-blue-500 rounded-full mb-2"></div>
+    <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+      {item.desc}
+    </p>
+  </div>
+))}
+
     </div>
   </div>
 </section>
