@@ -3,6 +3,8 @@ import NeonButton from '../components/NeonButton';
 import CountUp from 'react-countup';
 import AnimatedBackground from '../components/AnimatedBackground';
 import CustomerShowcase from '../components/CustomerShowcase';
+import IndustrialTiles from '../components/IndustrialTiles';
+
 import { motion } from 'framer-motion';
 
 
@@ -61,6 +63,9 @@ export default function Home() {
       <Head>
         <title>Data Destination</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+         <link
+    rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </Head>
 
       {/* HEADER */}
@@ -109,18 +114,6 @@ export default function Home() {
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
           {/* IMAGE SECTION */}
           <section className="w-full flex justify-center py-20 fade-in-up">
             <div className="gradient-glow-border">
@@ -132,75 +125,35 @@ export default function Home() {
             </div>
           </section>
 
+          
+          
+          
+          
+          
           <CustomerShowcase />
 
+
+
+
+
           {/* TILE SECTION WITH METRICS */}
-          <section className="w-full py-20">
-  <div className="w-full px-6 sm:px-12 lg:px-24">
-
-    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
-      Industrial Data Fabric
-    </h2>
-    <p className="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
-      A modern consulting solution to unify industrial IoT data, improve operational efficiency, and unlock critical business insights.
-    </p>
-
-              {/* TILES */}
-              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    title: "Data Integration",
-                    details: "Seamless ingestion from OPC-UA, Modbus TCP, MQTT, SQL, and REST APIs—across edge and cloud.",
-                  },
-                  {
-                    title: "Insight Enablement",
-                    details: "Enable real-time insights like OEE, MTTR, MTBF, Shift Performance, and Root Cause Analysis.",
-                  },
-                  {
-                    title: "Custom Interfaces",
-                    details: "Deliver tailored dashboards and UI components built atop standardized industrial hierarchies.",
-                  },
-                  {
-                    title: "Operational Excellence",
-                    details: "Improve uptime, reduce costs, and enable predictive monitoring with scalable IoT data fabric.",
-                  },
-                ].map((tile, index) => (
-                  <Tile key={index} title={tile.title} details={tile.details} />
-                ))}
-              </div>
-
-              {/* METRICS */}
-              <div className="mt-20 bg-gray-100 rounded-2xl py-12 px-4 sm:px-8 lg:px-16">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                  <div>
-                    <p className="text-3xl font-bold text-gray-900">
-                      <CountUp end={12} duration={2} />+ TB
-                    </p>
-                    <p className="text-sm text-gray-600">Industrial data processed daily</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold text-gray-900">
-                      <CountUp end={150} duration={2.5} />+
-                    </p>
-                    <p className="text-sm text-gray-600">Connected factory sites</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold text-gray-900">
-                      <CountUp end={99.98} duration={2.5} decimals={2} />%
-                    </p>
-                    <p className="text-sm text-gray-600">Uptime across IoT edge nodes</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold text-gray-900">
-                      <CountUp end={40} duration={2} />%
-                    </p>
-                    <p className="text-sm text-gray-600">Average reduction in downtime</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
           
+ 
+
+
+<div className="mt-32">
+  <IndustrialTiles />
+</div>
+
+
+
+
+
+
+
+
+
+
 
       {/* 🔥 Key Solutions Section */}
 <section

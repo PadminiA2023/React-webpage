@@ -359,3 +359,62 @@ html {
   opacity: 1;
   transform: rotate(45deg) translateY(100%);
 }
+
+/*Industrial Data Fabric tiles*/
+
+/*.tile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+}
+
+.floating-tile {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: floatTile 4s ease-in-out infinite alternate;
+}
+
+.floating-tile:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.floating-tile:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.floating-tile:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+@keyframes floatTile {
+  0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) translateX(10px) rotate(2deg); }
+  100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+}
+*/
+
+.tile-container {
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.floating-tile {
+  min-width: 240px;
+  height: 150px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
