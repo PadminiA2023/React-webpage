@@ -5,6 +5,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import CustomerShowcase from '../components/CustomerShowcase';
 import IndustrialTiles from '../components/IndustrialTiles';
 import MetricsSection from '../components/MetricsSection';
+import WhyChooseUs from '../components/WhyChooseUs';
 
 import { motion } from 'framer-motion';
 
@@ -125,23 +126,13 @@ const [text] = useTypewriter({
 
 
 
-          {/* IMAGE SECTION */}
-          <section className="w-full flex justify-center py-20 fade-in-up">
-            <div className="gradient-glow-border">
-              <img
-                src="/images/hero-image.png"
-                alt="AWS Solution Screenshot"
-                className="max-w-4xl w-full rounded-2xl shadow-xl"
-              />
-            </div>
-          </section>
-
+      
           
           
           
           
           
-          <CustomerShowcase />
+         
 
 
 
@@ -170,10 +161,13 @@ const [text] = useTypewriter({
 <MetricsSection />
 
 
+<WhyChooseUs />
 
 
 
 
+
+ <CustomerShowcase />
 
 
 
@@ -182,63 +176,55 @@ const [text] = useTypewriter({
   className="w-full py-20 px-6 sm:px-12 lg:px-24 fade-in-up"
   id="core-solutions"
 >
-  <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
+
+  <section className="w-full py-20 px-6 sm:px-12 lg:px-24">
+  <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-white">
     Our Core Solutions
   </h2>
 
+  <div className="flex flex-wrap justify-center gap-8">
+    {[
+      {
+        title: 'Multi-domain IoT Solutions',
+        description: 'Tailored IoT services for manufacturing, CPG, life sciences, and energy…',
+        gradient: 'from-pink-500 to-yellow-400',
+      },
+      {
+        title: 'Container Platform Modernization',
+        description: 'Modernize your application stack with secure, scalable containers…',
+        gradient: 'from-blue-500 to-purple-600',
+      },
+      {
+        title: 'Advanced Generative AI Solutions',
+        description: 'Enable next-gen automation and insights through custom-built AI workflows…',
+        gradient: 'from-green-400 to-cyan-500',
+      },
+    ].map((item, idx) => (
+      <div key={idx} className="relative w-80 h-96 group">
+        {/* Neon slanted background */}
+        <div
+          className={`absolute -rotate-12 w-64 h-96 bg-gradient-to-tr ${item.gradient} rounded-lg blur-2xl opacity-70 group-hover:opacity-100 transition duration-700`}
+        ></div>
 
-
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {/* Card 1 */}
-    <div className="relative bg-black bg-opacity-50 border border-purple-600 rounded-2xl p-6 shadow-lg hover:shadow-purple-500/50 transition transform duration-300 hover:scale-105">
-
-      <h3 className="text-xl font-semibold text-orange-400 mb-4">
-        Multi-domain IoT Solutions
-      </h3>
-      <p className="text-gray-300 text-sm mb-6">
-        Tailored IoT services for manufacturing, CPG, life sciences, and energy…
-      </p>
-      {/* ← Here’s the Know More button */}
-      <a
-        href="#multi-domain"
-        className="inline-block text-orange-400 font-medium hover:underline"
-      >
-        Know More →
-      </a>
-    </div>
-
-    {/* Card 2 */}
-    <div className="bg-black bg-opacity-50 border border-blue-500 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition transform duration-300 hover:scale-105">
-      <h3 className="text-xl font-semibold text-blue-400 mb-4">
-        Container Platform Modernization
-      </h3>
-      <p className="text-gray-300 text-sm mb-6">
-        Modernize your application stack with secure, scalable containers…
-      </p>
-      <a
-        href="#container-modernization"
-        className="inline-block text-blue-400 font-medium hover:underline"
-      >
-        Know More →
-      </a>
-    </div>
-
-    {/* Card 3 */}
-    <div className="bg-black bg-opacity-50 border border-pink-500 rounded-2xl p-6 shadow-lg hover:shadow-pink-500/50 transition transform duration-300 hover:scale-105">
-      <h3 className="text-xl font-semibold text-pink-400 mb-4">
-        Advanced Generative AI Solutions
-      </h3>
-      <p className="text-gray-300 text-sm mb-6">
-        Enable next-gen automation and insights through custom-built AI workflows…
-      </p>
-      <a
-        href="#gen-ai"
-        className="inline-block text-pink-400 font-medium hover:underline"
-      >
-        Know More →
-      </a>
-    </div>
+        {/* Glass card */}
+        <div className="relative w-full h-full bg-white/10 backdrop-blur-md rounded-xl p-6 flex flex-col justify-between shadow-xl border border-white/20">
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+            <p className="text-sm text-gray-300">{item.description}</p>
+          </div>
+          <a
+            href="#"
+            className="mt-4 inline-block px-4 py-2 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-200 transition"
+          >
+            Know More →
+          </a>
+        </div>
+      </div>
+    ))}
   </div>
+</section>
+
+
 </section>
 
 
