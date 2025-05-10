@@ -431,3 +431,67 @@ html {
 .holographic-button:hover {
   background: #6b7280; /* Tailwind's gray-600 hex */
 }
+
+
+/* Core Solutions section css:*/
+
+.card {
+  position: relative;
+  perspective: 1000px;
+  min-width: 300px;
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* Title Section */
+.card .face.face2 {
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.4s ease;
+}
+
+/* Description + Button Section */
+.card .face.face1 {
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.know-more-btn {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.know-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card {
+    height: 380px !important;
+  }
+  
+  .card .face.face2 h2 {
+    font-size: 1.8rem;
+  }
+  
+  .card .face.face1 p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .know-more-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

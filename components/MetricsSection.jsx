@@ -1,9 +1,18 @@
-
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
 
 export default function MetricsSection() {
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
   const metrics = [
     { label: 'TB Storage', value: 12 },
@@ -13,18 +22,34 @@ export default function MetricsSection() {
   ];
 
   return (
-    <section
+    <motion.section
       ref={ref}
       className="w-full py-20 px-6 sm:px-12 lg:px-24 bg-transparent relative"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeUp}
     >
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-white">
+      <motion.h2
+        className="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeUp}
+      >
         Key Performance Indicators
-      </h2>
+      </motion.h2>
+
       <div className="flex flex-wrap justify-center items-center relative max-w-6xl mx-auto">
         {metrics.map((metric, idx) => (
-          <div
+          <motion.div
             key={idx}
             className="relative w-full md:w-1/4 p-4 flex flex-col items-center"
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            variants={fadeUp}
           >
             <div className="w-6 h-6 bg-blue-500 rounded-full mb-4 border-4 border-white z-10"></div>
             <div className="bg-[#1e293b] rounded-lg p-6 shadow-lg text-center w-full">
@@ -43,13 +68,12 @@ export default function MetricsSection() {
                 {metric.label}
               </span>
             </div>
-            {/* Connector line between dots */}
             {idx < metrics.length - 1 && (
               <div className="hidden md:block absolute top-3 right-[-2rem] w-16 h-px bg-blue-500"></div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
