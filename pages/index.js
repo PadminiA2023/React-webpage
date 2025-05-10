@@ -7,6 +7,7 @@ import IndustrialTiles from '../components/IndustrialTiles';
 
 import { motion } from 'framer-motion';
 
+import { useTypewriter } from 'react-simple-typewriter';
 
 import { useEffect, useState } from 'react';
 
@@ -58,6 +59,17 @@ export default function Home() {
     document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
   }, []);
 
+const [text] = useTypewriter({
+  words: [
+    'Seamlessly integrate, contextualize, and deliver real-time industrial IoT data across your enterprise — from the edge to the cloud — unlocking actionable insights, improved operations, and scalable innovation.',
+  ],
+  loop: false,
+  typeSpeed: 30,
+  deleteSpeed: 0,
+  delaySpeed: 1000,
+});
+
+
   return (
     <>
       <Head>
@@ -97,21 +109,19 @@ export default function Home() {
           {/* HERO */}
 <section className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
   <h1 className="text-4xl md:text-6xl font-bold mb-6">
-    Accelerate Industrial Transformation with <br/>
-     Data Fabric
+    Accelerate Industrial Transformation with <br />
+    Data Fabric
   </h1>
   <p className="text-lg md:text-xl mb-8 max-w-2xl md:max-w-3xl">
-    Seamlessly integrate, contextualize, and deliver real-time industrial IoT data across your enterprise — from the edge to the cloud — unlocking actionable insights, improved operations, and scalable innovation.
+    {text}
   </p>
-  <div class="holographic-button-container">
-  <button class="holographic-button">
-    Get Started →
-  </button>
-</div>
-
-
-
+  <div className="holographic-button-container">
+    <button className="holographic-button">
+      Get Started →
+    </button>
+  </div>
 </section>
+
 
 
           {/* IMAGE SECTION */}
@@ -141,7 +151,7 @@ export default function Home() {
  
 
 
-<div className="mt-32">
+<div className="mt-20">
   <IndustrialTiles />
 </div>
 
