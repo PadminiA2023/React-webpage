@@ -147,7 +147,7 @@ const [text] = useTypewriter({
 
 
           {/* HERO */}
-<section className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
+<section id = "data-fabric" className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
   <h1 className="text-4xl md:text-6xl font-bold mb-6">
     Accelerate Industrial Transformation with <br />
     Data Fabric

@@ -32,8 +32,8 @@ export default function Advantages() {
     <section className="w-full px-6 py-24 sm:px-12 lg:px-24 text-white text-center">
       {/* Heading (no animation) */}
       <h2 className="text-4xl sm:text-5xl font-extrabold mb-4">
-  Still exploring options?
-</h2>
+         Still exploring options?
+      </h2>
 
       {/* Subheading with scroll animation */}
       <motion.p
@@ -57,7 +57,7 @@ export default function Advantages() {
           duration: 0.9,
           ease: [0.25, 0.8, 0.25, 1],
         }}
-        viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24 max-w-6xl mx-auto"
 
       >
