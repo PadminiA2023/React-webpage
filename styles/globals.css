@@ -21,8 +21,6 @@ html {
 
 
 
-
-
 @keyframes neon-beam {
   0%, 100% {
     opacity: 0.85;
@@ -116,76 +114,6 @@ html {
   will-change: transform;
 }
 
-@keyframes neon-border {
-  0% {
-    box-shadow:
-      0 0 20px rgba(255, 165, 0, 0.7),
-      0 0 40px rgba(0, 123, 255, 0.5),
-      0 0 60px rgba(255, 165, 0, 0.6);
-    border-color: rgba(255, 165, 0, 0.8);
-  }
-  50% {
-    box-shadow:
-      0 0 40px rgba(0, 123, 255, 0.8),
-      0 0 60px rgba(255, 165, 0, 0.5),
-      0 0 80px rgba(0, 123, 255, 0.7);
-    border-color: rgba(0, 123, 255, 0.9);
-  }
-  100% {
-    box-shadow:
-      0 0 20px rgba(255, 165, 0, 0.7),
-      0 0 40px rgba(0, 123, 255, 0.5),
-      0 0 60px rgba(255, 165, 0, 0.6);
-    border-color: rgba(255, 165, 0, 0.8);
-  }
-}
-
-.glow-border {
-  border-width: 8px;
-  border-style: solid;
-  border-radius: 1.25rem; /* rounded-2xl */
-  padding: 0.75rem;       /* p-3 */
-  animation: neon-border 3s ease-in-out infinite;
-}
-
-@keyframes pulse-border-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.gradient-glow-border {
-  border-radius: 1.5rem; /* large rounding */
-  padding: 10px; /* space for border */
-  background: linear-gradient(270deg, #ff7300, #007bff, #ff7300);
-  background-size: 600% 600%;
-  animation: pulse-border-gradient 6s ease infinite;
-  box-shadow:
-    0 0 25px rgba(255, 115, 0, 0.6),
-    0 0 50px rgba(0, 123, 255, 0.5),
-    0 0 75px rgba(255, 115, 0, 0.4);
-}
-@keyframes glowBorder {
-  0% {
-    filter: drop-shadow(0 0 4px #ff7300) drop-shadow(0 0 6px #007bff);
-  }
-  50% {
-    filter: drop-shadow(0 0 6px #ff7300) drop-shadow(0 0 10px #007bff);
-  }
-  100% {
-    filter: drop-shadow(0 0 4px #ff7300) drop-shadow(0 0 6px #007bff);
-  }
-}
-
-.animate-glow-border {
-  animation: glowBorder 4s ease-in-out infinite;
-}
 
 /* ——————————————— */
 /* Expandable Tiles Section */
@@ -310,7 +238,7 @@ html {
 }
 
 
-/*get started button*/
+
 
 .holographic-button-container {
   display: flex;
@@ -339,67 +267,19 @@ html {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0, 150, 255, 0.6),  /* vivid blue shimmer */
-    transparent
-  );
   transform: rotate(45deg);
   transition: all 0.5s ease;
   opacity: 0;
 }
 
 .holographic-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(0, 150, 255, 0.8);  /* vivid blue glow */
+  background: #6b7280; 
 }
 
-.holographic-button:hover::before {
-  opacity: 1;
-  transform: rotate(45deg) translateY(100%);
-}
+
+
 
 /*Industrial Data Fabric tiles*/
-
-/*.tile-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  max-width: 900px;
-}
-
-.floating-tile {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  padding: 20px 30px;
-  border-radius: 15px;
-  color: white;
-  font-weight: 600;
-  min-width: 180px;
-  text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  animation: floatTile 4s ease-in-out infinite alternate;
-}
-
-.floating-tile:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.floating-tile:nth-child(3) {
-  animation-delay: 0.6s;
-}
-.floating-tile:nth-child(4) {
-  animation-delay: 0.9s;
-}
-
-@keyframes floatTile {
-  0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) translateX(10px) rotate(2deg); }
-  100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-}
-*/
-
 .tile-container {
   max-width: 800px;
   margin-top: 2rem;
@@ -419,19 +299,31 @@ html {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-
+/*get started button*/
 .holographic-button {
-  background: #4b5563; /* Tailwind's gray-700 hex */
+  background: #4b5563; 
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   transition: background 0.3s;
 }
-.holographic-button:hover {
-  background: #6b7280; /* Tailwind's gray-600 hex */
+
+.holographic-button:hover {  /*get started button shadow effect*/
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.8);  
 }
 
+.holographic-button:hover::before {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 150, 255, 0.6),  /* vivid blue shimmer */
+    transparent
+    );
+  opacity: 1;
+  transform: rotate(45deg) translateY(100%);
+}
 
 /* Core Solutions section css:*/
 

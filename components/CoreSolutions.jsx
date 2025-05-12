@@ -42,13 +42,9 @@ export default function CoreSolutions() {
               <p className="text-base sm:text-lg mb-8 leading-relaxed text-gray-100">
                 {card.description}
               </p>
-              <button className="know-more-btn px-6 py-3 rounded-lg font-semibold 
-bg-[#1e3a8a] text-white border border-[#3b82f6] 
-hover:bg-[#3b82f6] hover:text-black 
-transition-all duration-300 shadow-lg hover:shadow-blue-500/40 
-translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 delay-150">
-  Know More
-</button>
+              <button className="know-more-btn px-6 py-3 rounded-lg font-semibold bg-[#1e3a8a] text-white border border-[#3b82f6] hover:bg-[#3b82f6] hover:text-black transition-all duration-300 shadow-lg hover:shadow-blue-500/40 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 delay-150">
+                Know More
+              </button>
             </div>
           </div>
         ))}

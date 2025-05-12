@@ -52,36 +52,7 @@ import {
 
 
 
-// TILE COMPONENT
-function Tile({ title, details }) {
-  const [expanded, setExpanded] = useState(false);
 
-  return (
-    <div
-      onClick={() => setExpanded(!expanded)}
-      className={`rounded-2xl p-6 shadow-lg text-white transition-all transform hover:scale-105 cursor-pointer bg-cover bg-center`}
-      style={{
-        backgroundImage: "url('/images/tilebg.png')",
-      }}
-    >
-      <h3 className="text-xl font-semibold text-center mb-2">{title}</h3>
-
-      <div className="text-center mb-2">
-        <span className="inline-block text-xl transition-transform duration-300">
-          {expanded ? '↓' : '→'}
-        </span>
-      </div>
-
-      <div
-        className={`transition-all ease-in-out duration-500 overflow-hidden ${
-          expanded ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <p className="text-sm text-center">{details}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   useEffect(() => {
@@ -146,7 +117,7 @@ const [text] = useTypewriter({
        <main className="relative z-10 flex flex-col items-center justify-start w-full">
 
 
-          {/* HERO */}
+  {/* HERO */}
 <section id = "data-fabric" className="relative w-full min-h-screen bg-gradient-to-b from-black to-[#001f3f] flex flex-col justify-center items-center text-center text-white">
   <h1 className="text-4xl md:text-6xl font-bold mb-6">
     Accelerate Industrial Transformation with <br />
@@ -188,17 +159,13 @@ const [text] = useTypewriter({
 
 <MetricsSection />
 
-
 <WhyChooseUs />
 
-
 <CustomerShowcase />
-
 
 <CoreSolutions />
 
   
- 
 
 {/* 📝 Multi-domain IoT Solutions – Enhanced Layout */}
 
@@ -528,7 +495,7 @@ const [text] = useTypewriter({
 
 
 
-{/* 🌌 Footer */}
+{/* Footer section */}
 <footer className="w-full bg-transparent border-t border-gray-800 text-gray-400 py-8 px-6 sm:px-12">
   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6 text-sm">
 
