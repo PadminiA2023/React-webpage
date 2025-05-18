@@ -52,7 +52,7 @@ html {
 }
 
 
-/* Button glow style (optional) */
+/* Button glow style */
 .button-glow {
   transition: all 0.3s ease;
   box-shadow: 0 0 0 transparent;

@@ -88,8 +88,9 @@ export default function CustomerShowcase() {
         >
           From automotive and energy giants to life sciences pioneers and CPG innovators like IFF, Data Destination drives digital transformation at scale.
         </p>
-
+         
         <div className="relative max-w-6xl mx-auto overflow-hidden">
+          {/*displaying the logos using fade effect:*/}
           <div
             className={`grid grid-cols-6 gap-4 transition-opacity duration-500 ${
               fade ? 'opacity-100' : 'opacity-0'

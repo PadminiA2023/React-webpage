@@ -167,7 +167,7 @@ const [text] = useTypewriter({
 
   
 
-{/* 📝 Multi-domain IoT Solutions – Enhanced Layout */}
+{/* Multi-domain IoT Solutions – Enhanced Layout */}
 
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
   <motion.div
@@ -224,7 +224,7 @@ const [text] = useTypewriter({
 </section>
 
 
-{/* 🐳 Container Platform Modernization – Centered Layout */}
+{/*  Container Platform Modernization – Centered Layout */}
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
   <motion.div
     initial="hidden"
@@ -280,7 +280,7 @@ const [text] = useTypewriter({
 </section>
 
 
-{/* 🤖 Advanced Generative AI Enabled Solutions – Centered Layout */}
+{/*  Advanced Generative AI Enabled Solutions – Centered Layout */}
 <section className="w-full px-6 py-20 sm:px-12 lg:px-24 bg-[#0a0a1a] text-white">
   <motion.div
     initial="hidden"
@@ -336,7 +336,7 @@ const [text] = useTypewriter({
 </section>
 
 
-{/* 🎥 Industrial IoT in Action Section */}
+{/* Industrial IoT in Action Section */}
 <section id="iot-action" className="w-full bg-transparent py-20">
 
 

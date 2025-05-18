@@ -51,6 +51,7 @@ export default function MetricsSection() {
             viewport={{ once: false, amount: 0.2 }}
             variants={fadeUp}
           >
+            {/*Blue lines and dots:*/}
             <div className="w-6 h-6 bg-blue-500 rounded-full mb-4 border-4 border-white z-10"></div>
             <div className="bg-[#1e293b] rounded-lg p-6 shadow-lg text-center w-full">
               <span className="text-4xl font-bold mb-2 block text-white">
